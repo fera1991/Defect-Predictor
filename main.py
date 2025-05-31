@@ -26,11 +26,8 @@ from xgboost import XGBClassifier
 from sklearn.ensemble import VotingClassifier
 from sklearn.inspection import permutation_importance
 from sklearn.metrics import matthews_corrcoef
+from sklearn.model_selection import StratifiedKFold
 
-#pylint
-import tempfile
-import subprocess
-import json
 
 # ==============================
 # Configuración de Parámetros
@@ -45,9 +42,9 @@ GENERAL_PARAMS = {
 
 # Parámetros para TfidfVectorizer
 TFIDF_PARAMS = {
-    'max_features': 20000,
-    'ngram_range': (1, 3),
-    'min_df': 5,  # Ajustado para reducir ruido
+    'max_features': 50000,
+    'ngram_range': (1, 4),
+    'min_df': 2,  # Ajustado para reducir ruido
     'max_df': 0.6,
     'stop_words': ['def', 'import', 'class', 'if', 'for', 'while', 'return', 'try', 'except'],  # Ampliado
     'lowercase': True,
@@ -58,7 +55,7 @@ TFIDF_PARAMS = {
 
 # Parámetros para TruncatedSVD
 SVD_PARAMS = {
-    'n_components': 150 ,  # Aumentado para capturar más varianza
+    'n_components': 200  ,  # Aumentado para capturar más varianza
     'algorithm': 'randomized',
     'n_iter': 10,
     'random_state': GENERAL_PARAMS['RANDOM_STATE']
@@ -73,7 +70,7 @@ RF_PARAMS = {
     'max_features': 'sqrt',  # Cambiado para mejor generalización
     'class_weight': 'balanced',
     'random_state': GENERAL_PARAMS['RANDOM_STATE'],
-    'n_jobs': 4
+    'n_jobs': -1
 }
 
 # Parámetros para SimpleImputer
@@ -200,7 +197,7 @@ def num_error_keywords(content):
     return sum(content_lower.count(word) for word in error_keywords) / loc
 
 def extraer_metricas(content):
-    try:    
+    try:  
         lines = content.splitlines()
         loc = len(lines)
         num_comments = content.count('#')
@@ -211,34 +208,6 @@ def extraer_metricas(content):
         code_density = (loc - num_empty_lines) / loc if loc > 0 else 0
         num_todos = num_todo_comments(content)
         todo_ratio = num_todos / loc if loc > 0 else 0
-
-        # === Análisis estático con pylint ===
-        with tempfile.NamedTemporaryFile(mode='w+', suffix='.py', delete=False) as tmp:
-            tmp.write(content)
-            tmp_path = tmp.name
-
-        try:
-            result = subprocess.run(
-                ['pylint', tmp_path, '-f', 'json', '--disable=all', '--enable=E,W,C,R'],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                timeout=10
-            )
-            pylint_output = json.loads(result.stdout) if result.stdout else []
-        except Exception:
-            pylint_output = []
-
-        conteo_violaciones = {
-            "error": 0,
-            "warning": 0,
-            "convention": 0,
-            "refactor": 0
-        }
-        for v in pylint_output:
-            t = v.get("type")
-            if t in conteo_violaciones:
-                conteo_violaciones[t] += 1
 
         return {
             "loc": loc,
@@ -274,10 +243,6 @@ def extraer_metricas(content):
             "num_docstrings": num_docstrings(content),
             "num_error_keywords": num_error_keywords(content),
             "todo_ratio": todo_ratio,
-            "num_pylint_errors": conteo_violaciones["error"],
-            "num_pylint_warnings": conteo_violaciones["warning"],
-            "num_pylint_conventions": conteo_violaciones["convention"],
-            "num_pylint_refactors": conteo_violaciones["refactor"]
         }
     except Exception as e:
         return {
@@ -314,40 +279,60 @@ def extraer_metricas(content):
             "num_docstrings": 0,
             "num_error_keywords": 0,
             "todo_ratio": 0,
-            "num_pylint_errors": 0,
-            "num_pylint_warnings": 0,
-            "num_pylint_conventions": 0,
-            "num_pylint_refactors": 0
         }
 
 def extraer_features(df_input):
     print("Extrayendo características de un batch de datos...")
+    
+    # Validar que existan las columnas necesarias
+    required_cols = ['content', 'datetime', 'methods', 'filepath', 'repo']
+    if not all(col in df_input.columns for col in required_cols):
+        raise ValueError("Faltan columnas requeridas en el DataFrame.")
+    
+    # Crear una copia del DataFrame original
+    df = df_input.copy()
+    
     try:
-        df_input['content'] = df_input['content'].apply(
+        # Convertir 'content' a texto
+        df['content'] = df['content'].apply(
             lambda x: x.decode('utf-8', errors='ignore') if isinstance(x, bytes) else str(x))
-        df_input['commit_datetime'] = pd.to_datetime(df_input['datetime'], errors='coerce')
-        df_input['commit_hour'] = df_input['commit_datetime'].dt.hour
-        df_input['commit_day'] = df_input['commit_datetime'].dt.dayofweek
-        # —————————— IMPUTACIÓN PARA commit_hour Y commit_day ——————————
-        median_hour = df_input['commit_hour'].median()
-        median_day  = df_input['commit_day'].median()
-        df_input['commit_hour'] = df_input['commit_hour'].fillna(median_hour)
-        df_input['commit_day'] = df_input['commit_day'].fillna(median_day)
-        df_input['num_methods'] = df_input['methods'].apply(lambda x: len(x) if isinstance(x, list) else 0)
-        df_input['filepath_length'] = df_input['filepath'].apply(lambda x: len(x) if isinstance(x, str) else 0)
-        #df_input['file_purpose'] = df_input['filepath'].apply(map_path_to_purpose)
-        df_input['file_change_freq'] = df_input['filepath'].map(df_input['filepath'].value_counts())
         
-        metricas = df_input['content'].apply(extraer_metricas).apply(pd.Series)
+        # Convertir 'datetime' a datetime y extraer hora y día
+        df['commit_datetime'] = pd.to_datetime(df['datetime'], errors='coerce')
+        df['commit_hour'] = df['commit_datetime'].dt.hour
+        df['commit_day'] = df['commit_datetime'].dt.dayofweek
+        
+        # Imputación para commit_hour y commit_day
+        median_hour = df['commit_hour'].median()
+        median_day  = df['commit_day'].median()
+        df['commit_hour'] = df['commit_hour'].fillna(median_hour)
+        df['commit_day'] = df['commit_day'].fillna(median_day)
+        
+        # Extraer número de métodos
+        df['num_methods'] = df['methods'].apply(lambda x: len(x) if isinstance(x, list) else 0)
+        
+        # Longitud del filepath
+        df['filepath_length'] = df['filepath'].apply(lambda x: len(x) if isinstance(x, str) else 0)
+        
+        # Frecuencia de cambio del archivo
+        df['file_change_freq'] = df.groupby('filepath')['filepath'].transform('count')
+        
+        # Extraer métricas del contenido
+        metricas = df['content'].apply(extraer_metricas).apply(pd.Series)
+        
+        # Concatenar todas las características
         df_features = pd.concat([
             metricas, 
-            df_input[['commit_hour', 'commit_day', 'num_methods', 'filepath_length', 'repo', 'file_change_freq']]
+            df[['commit_hour', 'commit_day', 'num_methods', 'filepath_length', 'repo', 'file_change_freq']]
         ], axis=1)
         
-        df_features['content_text'] = df_input['content']
-        df_features['repo_domain'] = df_input['repo'].apply(map_repo_to_domain)
+        # Agregar texto del contenido y dominio del repositorio
+        df_features['content_text'] = df['content']
+        df_features['repo_domain'] = df['repo'].apply(map_repo_to_domain)
+        
         print("Extracción de características completada.")
         return df_features
+    
     except Exception as e:
         print(f"Error en extraer_features: {e}")
         return None
@@ -374,9 +359,9 @@ if __name__ == "__main__":
     
     # Cargar los datasets
     print("Cargando los datasets...")
-    df_train = pd.read_parquet("jit_bug_prediction_splits/random/train.parquet.gzip")
-    df_test = pd.read_parquet("jit_bug_prediction_splits/random/test.parquet.gzip")
-    df_val = pd.read_parquet("jit_bug_prediction_splits/random/val.parquet.gzip")
+    df_train = pd.read_parquet("line_bug_prediction_splits/random/train.parquet.gzip")
+    df_test = pd.read_parquet("line_bug_prediction_splits/random/test.parquet.gzip")
+    df_val = pd.read_parquet("line_bug_prediction_splits/random/val.parquet.gzip")
     print("Datasets cargados.")
 
     # Procesar los datos según el valor de data_type
@@ -426,13 +411,13 @@ if __name__ == "__main__":
     # Convertir la columna 'content' en todos los casos
     df_train['content'] = df_train['content'].apply(
         lambda x: x.decode('utf-8', errors='ignore') if isinstance(x, bytes) else str(x)
-    )
+    ).str.replace('\\n', '\n')
     df_test['content'] = df_test['content'].apply(
         lambda x: x.decode('utf-8', errors='ignore') if isinstance(x, bytes) else str(x)
-    )
+    ).str.replace('\\n', '\n')
     df_val['content'] = df_val['content'].apply(
         lambda x: x.decode('utf-8', errors='ignore') if isinstance(x, bytes) else str(x)
-    )
+    ).str.replace('\\n', '\n')
 
     # Definir X y y para cada conjunto de manera consistente
     X_train = df_train.drop(columns=['label'])
@@ -458,8 +443,6 @@ if __name__ == "__main__":
         "commit_hour", "commit_day", "num_methods", "filepath_length", "file_change_freq",
         "avg_indent_length", "max_indent_length", "num_todo_comments", "num_operators",
         "avg_words_per_line", "num_docstrings", "num_error_keywords", "todo_ratio",
-        # 🔽 Nuevas métricas de pylint
-        "num_pylint_errors", "num_pylint_warnings", "num_pylint_conventions", "num_pylint_refactors"
     ]
 
     categorical_features = ['repo_domain']  # Lista inicial de características categóricas
@@ -547,7 +530,8 @@ if __name__ == "__main__":
     clf_rf = RandomForestClassifier(**RF_PARAMS)
     clf_xgb = XGBClassifier(
         eval_metric='logloss',
-        random_state=GENERAL_PARAMS['RANDOM_STATE']
+        random_state=GENERAL_PARAMS['RANDOM_STATE'],
+        n_jobs=-1 # Añadir esto para paralelización
     )
     clf_lr = LogisticRegression(max_iter=1000, random_state=GENERAL_PARAMS['RANDOM_STATE'])
 
@@ -601,7 +585,7 @@ if __name__ == "__main__":
         # LogisticRegression
         'clf__estimator__lr__C': [0.01, 0.1, 1.0, 10.0, 100.0],
         'clf__estimator__lr__penalty': ['l2'],
-        # 'clf__estimator__lr__solver': ['lbfgs'],  # opcional si agregas más penalties
+        'clf__estimator__lr__solver': ['lbfgs'],  # opcional si agregas más penalties
 
         # TF-IDF + SVD (solo si incluyes estos en el pipeline)
         'preprocessor__text__tfidf__max_df': [0.7, 0.85, 1.0],
@@ -682,13 +666,19 @@ if __name__ == "__main__":
     print("\nValidación:\n", y_val.value_counts(normalize=True).to_string())
 
     # --- Validación Cruzada ---
-    #print("\n=== Validación Cruzada (Entrenamiento) ===")
-    #start_pred = time.time()
-    #cv_scores = cross_val_score(best_pipeline, X_train_feats, y_train, cv=5, scoring='f1_macro')
-    #print(f"Puntuaciones F1-macro (5-fold CV): {cv_scores}")
-    #print(f"Media: {cv_scores.mean():.4f} (± {cv_scores.std():.4f})")
-    #end_pred = time.time()
-    #print(f"🕒 Tiempo de Validación Cruzada: {end_pred - start_pred:.2f} segundos")
+    print("\n=== Validación Cruzada (Entrenamiento) ===")
+    start_pred = time.time()
+    cv_scores = cross_val_score(
+        best_pipeline, 
+        X_train_feats, 
+        y_train, 
+        cv=StratifiedKFold(n_splits=5, shuffle=True, random_state=42), 
+        scoring='f1_macro')
+    
+    print(f"Puntuaciones F1-macro (5-fold CV): {cv_scores}")
+    print(f"Media: {cv_scores.mean():.4f} (± {cv_scores.std():.4f})")
+    end_pred = time.time()
+    print(f"🕒 Tiempo de Validación Cruzada: {end_pred - start_pred:.2f} segundos")
 
     # --- Evaluación en Conjunto de Prueba ---
     print("\n=== Evaluación en Conjunto de Prueba ===")
@@ -816,30 +806,40 @@ if __name__ == "__main__":
     plt.show()
     # === Permutation Feature Importance ===
     print("\n🔍 Calculando Permutation Feature Importance...")
+    
+    
+    # Submuestreo para acelerar el cálculo
+    sample_idx = np.random.choice(len(X_test_feats), size=5000, replace=False)
 
     # Obtener nombres de las características del preprocesador
     feature_names = []
     for name, transformer, columns in best_pipeline.named_steps['preprocessor'].transformers_:
         if name == 'num':
-            select_kbest = transformer.named_steps['select']
-            mask = select_kbest.get_support()  # características seleccionadas
-            selected_features = [columns[i] for i in range(len(columns)) if mask[i]]
-            feature_names.extend(selected_features)
+            select_kbest = transformer.named_steps.get('select')
+            if select_kbest:
+                mask = select_kbest.get_support()
+                selected_features = [columns[i] for i in range(len(columns)) if mask[i]]
+                feature_names.extend(selected_features)
+            else:
+                feature_names.extend(columns)
         elif name == 'text':
             n_components = transformer.named_steps['svd'].n_components
             feature_names.extend([f'text_component_{i+1}' for i in range(n_components)])
         elif name == 'cat':
             feature_names.extend(transformer.get_feature_names_out(columns))
 
+
     # Calcular la importancia por permutación
     result = permutation_importance(
         best_pipeline,
-        X_test_feats,
-        y_test,
-        n_repeats=10,
+        X_test_feats.iloc[sample_idx],
+        y_test.iloc[sample_idx],
+        n_repeats=20, # Reducido para mejorar rendimiento
         random_state=42,
-        scoring='f1_macro'
+        scoring='f1_macro',
+        n_jobs=-1 # Paralelización
     )
+
 
     # Asegurar longitud compatible
     n_features = len(result.importances_mean)
