@@ -1,14 +1,18 @@
 import pandas as pd
 import re
+import numpy as np
 from metrics import extraer_metricas, map_repo_to_domain
+from datetime import datetime
 
 def clean_code(content):
     """Elimina comentarios y normaliza espacios en el código fuente."""
-    # Eliminar comentarios de una línea
-    content = re.sub(r'#.*$', '', content, flags=re.MULTILINE)
-    # Normalizar espacios y eliminar líneas vacías
-    content = '\n'.join(line.strip() for line in content.splitlines() if line.strip())
-    return content
+    try:
+        content = re.sub(r'#.*$', '', content, flags=re.MULTILINE)
+        content = '\n'.join(line.strip() for line in content.splitlines() if line.strip())
+        return content
+    except Exception as e:
+        print(f"Error al limpiar código: {e}")
+        return str(content)
 
 def extraer_features(df_input):
     print("Extrayendo características de un batch de datos...")
@@ -16,60 +20,82 @@ def extraer_features(df_input):
     # Validar columnas necesarias
     required_cols = ['content_diff', 'content_full', 'datetime', 'methods', 'filepath', 'repo']
     if not all(col in df_input.columns for col in required_cols):
-        raise ValueError("Faltan columnas requeridas en el DataFrame.")
-    
+        missing_cols = [col for col in required_cols if col not in df_input.columns]
+        raise ValueError(f"Faltan columnas requeridas en el DataFrame: {missing_cols}")
+
     df = df_input.copy()
     
+    # Calcular métricas para content_full y content_diff
     try:
-        # Convertir contenido a texto
-        df['content_diff'] = df['content_diff'].apply(
-            lambda x: x.decode('utf-8', errors='ignore') if isinstance(x, bytes) else str(x))
-        df['content_full'] = df['content_full'].apply(
-            lambda x: x.decode('utf-8', errors='ignore') if isinstance(x, bytes) else str(x))
-        
-        # Limpiar el código
-        df['content_diff'] = df['content_diff'].apply(clean_code)
-        df['content_full'] = df['content_full'].apply(clean_code)
-        
-        # Extraer características temporales
-        df['commit_datetime'] = pd.to_datetime(df['datetime'], errors='coerce')
+        metrics_full = df['content_full'].apply(lambda x: extraer_metricas(x))
+        metrics_diff = df['content_diff'].apply(lambda x: extraer_metricas(x))
+    except Exception as e:
+        print(f"Error al calcular métricas: {e}")
+        return None
+
+    # Convertir métricas a DataFrames
+    metrics_full_df = pd.DataFrame(metrics_full.tolist()).add_suffix('_full')
+    metrics_diff_df = pd.DataFrame(metrics_diff.tolist()).add_suffix('_diff')
+
+    # Extraer características temporales
+    try:
+        df['commit_datetime'] = pd.to_datetime(df['datetime'], utc=True)
         df['commit_hour'] = df['commit_datetime'].dt.hour
         df['commit_day'] = df['commit_datetime'].dt.dayofweek
-        
-        # Imputación para commit_hour y commit_day
-        median_hour = df['commit_hour'].median()
-        median_day = df['commit_day'].median()
-        df['commit_hour'] = df['commit_hour'].fillna(median_hour)
-        df['commit_day'] = df['commit_day'].fillna(median_day)
-        
-        # Extraer número de métodos
-        df['num_methods'] = df['methods'].apply(lambda x: len(x) if isinstance(x, list) else 0)
-        
-        # Longitud del filepath
-        df['filepath_length'] = df['filepath'].apply(lambda x: len(x) if isinstance(x, str) else 0)
-        
-        # Frecuencia de cambio del archivo
-        df['file_change_freq'] = df.groupby('filepath')['filepath'].transform('count')
-        
-        # Extraer métricas de contenido
-        metricas_full = df['content_full'].apply(extraer_metricas).apply(pd.Series).add_suffix('_full')
-        metricas_diff = df['content_diff'].apply(extraer_metricas).apply(pd.Series).add_suffix('_diff')
-        
-        # Concatenar todas las características
-        df_features = pd.concat([
-            metricas_full,
-            metricas_diff,
-            df[['commit_hour', 'commit_day', 'num_methods', 'filepath_length', 'repo', 'file_change_freq']]
-        ], axis=1)
-        
-        # Agregar texto del contenido y dominio del repositorio
-        df_features['content_text_full'] = df['content_full']
-        df_features['content_text_diff'] = df['content_diff']
-        df_features['repo_domain'] = df['repo'].apply(map_repo_to_domain)
-        
-        print("Extracción de características completada.")
-        return df_features
-    
     except Exception as e:
-        print(f"Error en extraer_features: {e}")
-        return None
+        print(f"Error al extraer características temporales: {e}")
+        df['commit_hour'] = 0
+        df['commit_day'] = 0
+
+    # Calcular longitud del filepath
+    df['filepath_length'] = df['filepath'].str.len()
+
+    # Calcular frecuencia de cambios por archivo
+    try:
+        file_change_freq = df.groupby(['repo', 'filepath'])['commit'].count().reset_index(name='file_change_freq')
+        df = df.merge(file_change_freq, on=['repo', 'filepath'], how='left')
+        df['file_change_freq'] = df['file_change_freq'].fillna(0)
+    except Exception as e:
+        print(f"Error al calcular file_change_freq: {e}")
+        df['file_change_freq'] = 0
+
+    # Mapear repositorio a dominio
+    try:
+        df['repo_domain'] = df['repo'].apply(map_repo_to_domain)
+    except Exception as e:
+        print(f"Error al mapear repo_domain: {e}")
+        df['repo_domain'] = 'other'
+
+    # Preparar textos para TF-IDF
+    df['content_text_full'] = df['content_full'].apply(clean_code)
+    df['content_text_diff'] = df['content_diff'].apply(clean_code)
+
+    # Combinar todas las características
+    features_df = pd.concat([
+        metrics_full_df,
+        metrics_diff_df,
+        df[['commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']]
+    ], axis=1)
+
+    # Verificar columnas generadas
+    expected_cols = (
+        [col for col in metrics_full_df.columns] +
+        [col for col in metrics_diff_df.columns] +
+        ['commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+    )
+    missing_cols = [col for col in expected_cols if col not in features_df.columns]
+    if missing_cols:
+        print(f"Advertencia: Faltan columnas esperadas: {missing_cols}")
+        for col in missing_cols:
+            features_df[col] = 0  # Rellenar con 0 para columnas numéricas o vacías
+
+    # Eliminar columna 'repo' explícitamente
+    if 'repo' in features_df.columns:
+        features_df = features_df.drop(columns=['repo'])
+        print("Columna 'repo' eliminada correctamente.")
+    else:
+        print("Columna 'repo' no encontrada en features_df.")
+
+    print("Columnas en features_df:", features_df.columns.tolist())
+    print("Extracción de características completada.")
+    return features_df

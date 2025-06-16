@@ -5,6 +5,10 @@ import math
 # Funciones de extracción de métricas
 # ==============================
 
+# =================================
+# Texto y características textuales
+# =================================
+
 def token_entropy(content):
     tokens = content.split()
     if not tokens:
@@ -13,8 +17,49 @@ def token_entropy(content):
     total = len(tokens)
     return -sum((count / total) * math.log2(count / total) for count in freqs.values())
 
+def repetition_score(content):
+    lines = [line.strip() for line in content.splitlines() if line.strip()]
+    if not lines:
+        return 0
+    repeated = len(lines) - len(set(lines))
+    return repeated / len(lines)
+
+def avg_words_per_line(content):
+    lines = content.splitlines()
+    words_per_line = [len(line.split()) for line in lines if line.strip()]
+    return sum(words_per_line) / len(words_per_line) if words_per_line else 0
+
+def num_error_keywords(content):
+    error_keywords = ['error', 'fail', 'exception', 'bug']
+    content_lower = content.lower()
+    loc = len(content_lower.splitlines()) or 1
+    return sum(content_lower.count(word) for word in error_keywords) / loc
+
+def num_todo_comments(content):
+    lines = content.splitlines()
+    return sum(1 for line in lines if '#' in line and ('todo' in line.lower() or 'fixme' in line.lower()))
+
+# =====================
+# Complejidad y Calidad
+# =====================
+
+def num_decision_points(content):
+    keywords = ['if ', 'elif ', 'for ', 'while ', 'try:', 'except', ' and ', ' or ']
+    lines = content.splitlines()
+    return sum(any(kw in line for kw in keywords) for line in lines if line.strip())
+
 def num_indent_levels(content):
     return len(set(len(line) - len(line.lstrip(' ')) for line in content.splitlines() if line.strip()))
+
+def avg_indent_length(content):
+    lines = content.splitlines()
+    indents = [len(line) - len(line.lstrip(' ')) for line in lines if line.strip()]
+    return sum(indents) / len(indents) if indents else 0
+
+def max_indent_length(content):
+    lines = content.splitlines()
+    indents = [len(line) - len(line.lstrip(' ')) for line in lines if line.strip()]
+    return max(indents) if indents else 0
 
 def has_mixed_tabs_spaces(content):
     lines = content.splitlines()
@@ -23,22 +68,21 @@ def has_mixed_tabs_spaces(content):
 def has_unclosed_parens(content):
     return int(content.count('(') != content.count(')'))
 
-def repetition_score(content):
-    lines = [line.strip() for line in content.splitlines() if line.strip()]
-    if not lines:
-        return 0
-    repeated = len(lines) - len(set(lines))
-    return repeated / len(lines)
+def count_operators(content):
+    operators = ['+', '-', '*', '/', '%', '**', '//']
+    return sum(content.count(op) for op in operators)
 
-def num_decision_points(content):
-    keywords = ['if ', 'elif ', 'for ', 'while ', 'try:', 'except', ' and ', ' or ']
-    lines = content.splitlines()
-    return sum(any(kw in line for kw in keywords) for line in lines if line.strip())
+def num_docstrings(content):
+    return (content.count('"""') // 2) + (content.count("'''") // 2)
 
 def num_external_calls(content):
     lines = content.splitlines()
     loc = len(lines) or 1
     return content.count('.') / loc
+
+# =============================
+# Especificaciones del Proyecto
+# =============================
 
 def map_repo_to_domain(repo):
     mapping = {
@@ -77,38 +121,6 @@ def map_path_to_purpose(filepath):
     if path.count("/") <= 2:
         return "root_or_meta"
     return "other"
-
-def avg_indent_length(content):
-    lines = content.splitlines()
-    indents = [len(line) - len(line.lstrip(' ')) for line in lines if line.strip()]
-    return sum(indents) / len(indents) if indents else 0
-
-def max_indent_length(content):
-    lines = content.splitlines()
-    indents = [len(line) - len(line.lstrip(' ')) for line in lines if line.strip()]
-    return max(indents) if indents else 0
-
-def num_todo_comments(content):
-    lines = content.splitlines()
-    return sum(1 for line in lines if '#' in line and ('todo' in line.lower() or 'fixme' in line.lower()))
-
-def count_operators(content):
-    operators = ['+', '-', '*', '/', '%', '**', '//']
-    return sum(content.count(op) for op in operators)
-
-def avg_words_per_line(content):
-    lines = content.splitlines()
-    words_per_line = [len(line.split()) for line in lines if line.strip()]
-    return sum(words_per_line) / len(words_per_line) if words_per_line else 0
-
-def num_docstrings(content):
-    return (content.count('"""') // 2) + (content.count("'''") // 2)
-
-def num_error_keywords(content):
-    error_keywords = ['error', 'fail', 'exception', 'bug']
-    content_lower = content.lower()
-    loc = len(content_lower.splitlines()) or 1
-    return sum(content_lower.count(word) for word in error_keywords) / loc
 
 def extraer_metricas(content):
     try:  

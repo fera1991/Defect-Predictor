@@ -1,0 +1,1245 @@
+2025-06-14 01:03:16,025 - INFO - Cargando los datasets...
+2025-06-14 01:03:35,418 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 01:03:35,421 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 01:03:35,421 - INFO - Datasets cargados.
+2025-06-14 01:03:35,421 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 01:03:35,760 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 01:03:35,858 - INFO - Distribución de clases original:
+2025-06-14 01:03:35,865 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 01:03:35,865 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 01:03:35,866 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 01:03:35,875 - INFO - Ajustando conjunto de prueba...
+2025-06-14 01:03:35,905 - INFO - Ajustando conjunto de validación...
+2025-06-14 01:03:35,922 - INFO - Balanceando entrenamiento...
+2025-06-14 01:03:36,097 - INFO - Distribución de clases final:
+2025-06-14 01:03:36,099 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 01:03:36,099 - INFO - Validación (19342 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 01:03:36,100 - INFO - Prueba (19342 ejemplos): {0: 0.7500258504808189, 1: 0.24997414951918107}
+2025-06-14 01:03:47,471 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-14 01:03:47,479 - INFO - Tamaño del conjunto de prueba: 19342
+2025-06-14 01:03:47,479 - INFO - Tamaño del conjunto de validación: 19342
+2025-06-14 01:03:47,480 - INFO - Conjuntos de datos preparados.
+2025-06-14 01:03:47,686 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 01:04:59,282 - INFO - Cargando los datasets...
+2025-06-14 01:05:14,919 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 01:05:14,919 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 01:05:14,919 - INFO - Datasets cargados.
+2025-06-14 01:05:14,919 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 01:05:15,076 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 01:05:15,117 - INFO - Distribución de clases original:
+2025-06-14 01:05:15,120 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 01:05:15,120 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 01:05:15,121 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 01:05:15,123 - INFO - Ajustando conjunto de prueba...
+2025-06-14 01:05:15,130 - INFO - Ajustando conjunto de validación...
+2025-06-14 01:05:15,137 - INFO - Balanceando entrenamiento...
+2025-06-14 01:05:15,237 - INFO - Distribución de clases final:
+2025-06-14 01:05:15,237 - INFO - Entrenamiento (54706 ejemplos): {1: 0.5027602091178298, 0: 0.49723979088217013}
+2025-06-14 01:05:15,238 - INFO - Validación (5803 ejemplos): {1: 0.500430811649147, 0: 0.499569188350853}
+2025-06-14 01:05:15,238 - INFO - Prueba (19342 ejemplos): {0: 0.7500258504808189, 1: 0.24997414951918107}
+2025-06-14 01:05:17,426 - INFO - Tamaño del conjunto de entrenamiento: 54706
+2025-06-14 01:05:17,426 - INFO - Tamaño del conjunto de prueba: 19342
+2025-06-14 01:05:17,426 - INFO - Tamaño del conjunto de validación: 5803
+2025-06-14 01:05:17,427 - INFO - Conjuntos de datos preparados.
+2025-06-14 01:05:17,473 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 01:07:02,715 - INFO - Tiempo de extracción: 105.24 segundos
+2025-06-14 01:07:02,715 - INFO - Tamaño de X_train_feats después de extracción: 54706
+2025-06-14 01:07:02,715 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 01:07:41,000 - INFO - Tiempo de extracción: 38.28 segundos
+2025-06-14 01:07:41,000 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 01:07:51,308 - INFO - Tiempo de extracción: 10.31 segundos
+2025-06-14 01:07:51,309 - INFO - Número de características extraídas: 73
+2025-06-14 01:07:51,328 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 01:07:53,077 - INFO - Características constantes: []
+2025-06-14 01:07:53,077 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 01:07:53,078 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 01:07:53,078 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_01-04-59'.
+2025-06-14 01:07:53,078 - INFO - Entrenando RandomForest...
+2025-06-14 01:07:53,078 - INFO - Realizando búsqueda wide...
+2025-06-14 01:07:53,096 - ERROR - Error inesperado en búsqueda wide: high is out of bounds for int32
+2025-06-14 01:07:53,097 - ERROR - Error inesperado en RandomForest: high is out of bounds for int32
+2025-06-14 01:07:53,097 - WARNING - Deteniendo la ejecución.
+2025-06-14 01:17:38,697 - INFO - Cargando los datasets...
+2025-06-14 01:17:55,158 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 01:17:55,159 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 01:17:55,159 - INFO - Datasets cargados.
+2025-06-14 01:17:55,159 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 01:17:55,341 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 01:17:55,382 - INFO - Distribución de clases original:
+2025-06-14 01:17:55,386 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 01:17:55,386 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 01:17:55,386 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 01:17:55,390 - INFO - Ajustando conjunto de prueba...
+2025-06-14 01:17:55,401 - INFO - Ajustando conjunto de validación...
+2025-06-14 01:17:55,413 - INFO - Balanceando entrenamiento...
+2025-06-14 01:17:55,516 - INFO - Distribución de clases final:
+2025-06-14 01:17:55,517 - INFO - Entrenamiento (54706 ejemplos): {1: 0.5027602091178298, 0: 0.49723979088217013}
+2025-06-14 01:17:55,517 - INFO - Validación (5803 ejemplos): {1: 0.500430811649147, 0: 0.499569188350853}
+2025-06-14 01:17:55,517 - INFO - Prueba (19342 ejemplos): {0: 0.7500258504808189, 1: 0.24997414951918107}
+2025-06-14 01:17:57,773 - INFO - Tamaño del conjunto de entrenamiento: 54706
+2025-06-14 01:17:57,773 - INFO - Tamaño del conjunto de prueba: 19342
+2025-06-14 01:17:57,773 - INFO - Tamaño del conjunto de validación: 5803
+2025-06-14 01:17:57,774 - INFO - Conjuntos de datos preparados.
+2025-06-14 01:17:57,825 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 01:19:44,989 - INFO - Tiempo de extracción: 107.16 segundos
+2025-06-14 01:19:44,989 - INFO - Tamaño de X_train_feats después de extracción: 54706
+2025-06-14 01:19:44,989 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 01:20:21,337 - INFO - Tiempo de extracción: 36.35 segundos
+2025-06-14 01:20:21,341 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 01:20:31,721 - INFO - Tiempo de extracción: 10.38 segundos
+2025-06-14 01:20:31,721 - INFO - Número de características extraídas: 73
+2025-06-14 01:20:31,741 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 01:20:33,521 - INFO - Características constantes: []
+2025-06-14 01:20:33,521 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 01:20:33,525 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 01:20:33,525 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_01-17-38'.
+2025-06-14 01:20:33,525 - INFO - Entrenando RandomForest...
+2025-06-14 01:20:33,525 - INFO - Realizando búsqueda wide...
+2025-06-14 01:22:26,521 - INFO - Cargando los datasets...
+2025-06-14 01:22:43,882 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 01:22:43,882 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 01:22:43,883 - INFO - Datasets cargados.
+2025-06-14 01:22:43,883 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 01:22:44,050 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 01:22:44,092 - INFO - Distribución de clases original:
+2025-06-14 01:22:44,095 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 01:22:44,095 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 01:22:44,096 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 01:22:44,098 - INFO - Ajustando conjunto de prueba...
+2025-06-14 01:22:44,107 - INFO - Ajustando conjunto de validación...
+2025-06-14 01:22:44,115 - INFO - Balanceando entrenamiento...
+2025-06-14 01:22:44,211 - INFO - Distribución de clases final:
+2025-06-14 01:22:44,212 - INFO - Entrenamiento (54706 ejemplos): {1: 0.5027602091178298, 0: 0.49723979088217013}
+2025-06-14 01:22:44,212 - INFO - Validación (5803 ejemplos): {1: 0.500430811649147, 0: 0.499569188350853}
+2025-06-14 01:22:44,212 - INFO - Prueba (19342 ejemplos): {0: 0.7500258504808189, 1: 0.24997414951918107}
+2025-06-14 01:22:46,964 - INFO - Tamaño del conjunto de entrenamiento: 54706
+2025-06-14 01:22:46,964 - INFO - Tamaño del conjunto de prueba: 19342
+2025-06-14 01:22:46,964 - INFO - Tamaño del conjunto de validación: 5803
+2025-06-14 01:22:46,964 - INFO - Conjuntos de datos preparados.
+2025-06-14 01:22:47,049 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 01:24:46,228 - INFO - Tiempo de extracción: 119.18 segundos
+2025-06-14 01:24:46,228 - INFO - Tamaño de X_train_feats después de extracción: 54706
+2025-06-14 01:24:46,228 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 01:25:22,630 - INFO - Tiempo de extracción: 36.40 segundos
+2025-06-14 01:25:22,630 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 01:25:33,047 - INFO - Tiempo de extracción: 10.42 segundos
+2025-06-14 01:25:33,047 - INFO - Número de características extraídas: 73
+2025-06-14 01:25:33,062 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 01:25:34,766 - INFO - Características constantes: []
+2025-06-14 01:25:34,766 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 01:25:34,766 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 01:25:34,772 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_01-22-26'.
+2025-06-14 01:25:34,772 - INFO - Entrenando RandomForest...
+2025-06-14 01:25:34,772 - INFO - Realizando búsqueda wide...
+2025-06-14 02:00:11,622 - INFO - Tiempo de búsqueda wide: 2076.85 segundos
+2025-06-14 02:00:11,624 - INFO - Mejores parámetros (wide): {'preprocessor__text_full__tfidf__sublinear_tf': True, 'preprocessor__text_full__tfidf__ngram_range': (1, 2), 'preprocessor__text_full__tfidf__min_df': 1, 'preprocessor__text_full__tfidf__max_features': 20000, 'preprocessor__text_full__tfidf__max_df': 0.9, 'preprocessor__text_full__svd__n_iter': 10, 'preprocessor__text_full__svd__n_components': 50, 'preprocessor__text_diff__tfidf__sublinear_tf': False, 'preprocessor__text_diff__tfidf__ngram_range': (1, 2), 'preprocessor__text_diff__tfidf__min_df': 3, 'preprocessor__text_diff__tfidf__max_features': 5000, 'preprocessor__text_diff__tfidf__max_df': 0.7, 'preprocessor__text_diff__svd__n_iter': 15, 'preprocessor__text_diff__svd__n_components': 150, 'clf__estimator__n_estimators': 500, 'clf__estimator__min_samples_split': 5, 'clf__estimator__min_samples_leaf': 1, 'clf__estimator__max_features': 'log2', 'clf__estimator__max_depth': None}
+2025-06-14 02:00:11,624 - INFO - Mejor F1-score (wide): 0.7096
+2025-06-14 02:00:11,625 - INFO - Ajustando el mejor modelo para RandomForest...
+2025-06-14 02:06:52,975 - INFO - Tiempo de entrenamiento: 2478.20 segundos
+2025-06-14 02:06:52,976 - INFO - Estado del preprocesador para RandomForest...
+2025-06-14 02:06:52,987 - INFO - Transformador num: Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler()),
+                ('var_threshold', VarianceThreshold()),
+                ('select', SelectKBest(k='all'))])
+2025-06-14 02:06:52,989 - INFO - Transformador num está ajustado.
+2025-06-14 02:06:52,991 - INFO - Transformador cat: Pipeline(steps=[('imputer',
+                 SimpleImputer(fill_value='missing', strategy='constant')),
+                ('onehot',
+                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])
+2025-06-14 02:06:52,992 - INFO - Transformador cat está ajustado.
+2025-06-14 02:06:52,994 - INFO - Transformador text_full: Pipeline(steps=[('tfidf',
+                 TfidfVectorizer(max_df=0.9, max_features=20000,
+                                 ngram_range=(1, 2), strip_accents='unicode',
+                                 sublinear_tf=True,
+                                 token_pattern='\\b\\w+\\b')),
+                ('svd',
+                 TruncatedSVD(n_components=50, n_iter=10, random_state=42))])
+2025-06-14 02:06:52,996 - INFO - Transformador text_full está ajustado.
+2025-06-14 02:06:52,998 - INFO - Transformador text_diff: Pipeline(steps=[('tfidf',
+                 TfidfVectorizer(max_df=0.7, max_features=5000, min_df=3,
+                                 ngram_range=(1, 2), strip_accents='unicode',
+                                 token_pattern='\\b\\w+\\b')),
+                ('svd',
+                 TruncatedSVD(n_components=150, n_iter=15, random_state=42))])
+2025-06-14 02:06:52,999 - INFO - Transformador text_diff está ajustado.
+2025-06-14 02:06:52,999 - INFO - Generando nombres de características para RandomForest...
+2025-06-14 02:06:53,001 - INFO - Evaluación en Conjunto Test (RandomForest)...
+2025-06-14 02:08:10,171 - INFO - Tiempo de predicción: 77.17 segundos
+2025-06-14 02:08:10,308 - INFO - Umbral óptimo (MCC): 0.646, MCC: 0.329
+2025-06-14 02:08:10,308 - INFO - Reporte de Clasificación (umbral óptimo MCC, RandomForest):
+2025-06-14 02:08:10,317 - INFO -               precision    recall  f1-score   support
+
+           0       0.84      0.80      0.82     14507
+           1       0.48      0.54      0.51      4835
+
+    accuracy                           0.74     19342
+   macro avg       0.66      0.67      0.66     19342
+weighted avg       0.75      0.74      0.74     19342
+
+2025-06-14 02:08:10,322 - INFO - Matriz de Confusión (umbral óptimo MCC, RandomForest):
+2025-06-14 02:08:10,323 - INFO - [[11673  2834]
+ [ 2237  2598]]
+2025-06-14 02:08:10,340 - INFO - Área bajo la curva ROC: 0.7599
+2025-06-14 02:08:10,340 - INFO - Evaluación en Conjunto Val (RandomForest)...
+2025-06-14 02:08:31,911 - INFO - Tiempo de predicción: 21.57 segundos
+2025-06-14 02:08:32,015 - INFO - Umbral óptimo (MCC): 0.434, MCC: 0.381
+2025-06-14 02:08:32,015 - INFO - Reporte de Clasificación (umbral óptimo MCC, RandomForest):
+2025-06-14 02:08:32,021 - INFO -               precision    recall  f1-score   support
+
+           0       0.77      0.51      0.62      2899
+           1       0.64      0.85      0.73      2904
+
+    accuracy                           0.68      5803
+   macro avg       0.70      0.68      0.67      5803
+weighted avg       0.70      0.68      0.67      5803
+
+2025-06-14 02:08:32,026 - INFO - Matriz de Confusión (umbral óptimo MCC, RandomForest):
+2025-06-14 02:08:32,026 - INFO - [[1485 1414]
+ [ 444 2460]]
+2025-06-14 02:08:32,034 - INFO - Área bajo la curva ROC: 0.7516
+2025-06-14 02:08:32,034 - INFO - Calculando Permutation Feature Importance (RandomForest)...
+2025-06-14 02:14:25,160 - INFO - Cargando los datasets...
+2025-06-14 02:14:40,769 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:14:40,769 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:14:40,769 - INFO - Datasets cargados.
+2025-06-14 02:14:40,769 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 02:14:40,927 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 02:14:40,974 - INFO - Distribución de clases original:
+2025-06-14 02:14:40,974 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 02:14:40,974 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:14:40,974 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:14:40,974 - INFO - Ajustando conjunto de prueba...
+2025-06-14 02:14:40,991 - INFO - Ajustando conjunto de validación...
+2025-06-14 02:14:40,991 - INFO - Balanceando entrenamiento...
+2025-06-14 02:14:41,085 - INFO - Distribución de clases final:
+2025-06-14 02:14:41,085 - INFO - Entrenamiento (54706 ejemplos): {1: 0.5027602091178298, 0: 0.49723979088217013}
+2025-06-14 02:14:41,085 - INFO - Validación (5803 ejemplos): {1: 0.500430811649147, 0: 0.499569188350853}
+2025-06-14 02:14:41,085 - INFO - Prueba (19342 ejemplos): {0: 0.7500258504808189, 1: 0.24997414951918107}
+2025-06-14 02:14:43,229 - INFO - Tamaño del conjunto de entrenamiento: 54706
+2025-06-14 02:14:43,229 - INFO - Tamaño del conjunto de prueba: 19342
+2025-06-14 02:14:43,229 - INFO - Tamaño del conjunto de validación: 5803
+2025-06-14 02:14:43,229 - INFO - Conjuntos de datos preparados.
+2025-06-14 02:14:43,277 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 02:16:27,337 - INFO - Tiempo de extracción: 104.06 segundos
+2025-06-14 02:16:27,337 - INFO - Tamaño de X_train_feats después de extracción: 54706
+2025-06-14 02:16:27,337 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 02:17:03,092 - INFO - Tiempo de extracción: 35.75 segundos
+2025-06-14 02:17:03,092 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 02:17:13,328 - INFO - Tiempo de extracción: 10.24 segundos
+2025-06-14 02:17:13,328 - INFO - Número de características extraídas: 73
+2025-06-14 02:17:13,360 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 02:17:15,112 - INFO - Características constantes: []
+2025-06-14 02:17:15,112 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 02:17:15,112 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 02:17:15,112 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_02-14-25'.
+2025-06-14 02:17:15,112 - INFO - Entrenando XGBoost...
+2025-06-14 02:17:15,112 - INFO - Realizando búsqueda wide...
+2025-06-14 02:17:15,128 - ERROR - Error inesperado en búsqueda wide: high is out of bounds for int32
+2025-06-14 02:17:15,128 - ERROR - Error inesperado en XGBoost: high is out of bounds for int32
+2025-06-14 02:17:15,128 - WARNING - Deteniendo la ejecución.
+2025-06-14 02:17:55,533 - INFO - Cargando los datasets...
+2025-06-14 02:18:09,216 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:18:09,216 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:18:09,216 - INFO - Datasets cargados.
+2025-06-14 02:18:09,216 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 02:18:09,358 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 02:18:09,406 - INFO - Distribución de clases original:
+2025-06-14 02:18:09,406 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 02:18:09,406 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:18:09,406 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:18:09,406 - INFO - Ajustando conjunto de prueba...
+2025-06-14 02:18:09,406 - INFO - Ajustando conjunto de validación...
+2025-06-14 02:18:09,423 - INFO - Balanceando entrenamiento...
+2025-06-14 02:18:09,503 - INFO - Distribución de clases final:
+2025-06-14 02:18:09,517 - INFO - Entrenamiento (54706 ejemplos): {1: 0.5027602091178298, 0: 0.49723979088217013}
+2025-06-14 02:18:09,517 - INFO - Validación (5803 ejemplos): {1: 0.500430811649147, 0: 0.499569188350853}
+2025-06-14 02:18:09,517 - INFO - Prueba (19342 ejemplos): {0: 0.7500258504808189, 1: 0.24997414951918107}
+2025-06-14 02:18:11,558 - INFO - Tamaño del conjunto de entrenamiento: 54706
+2025-06-14 02:18:11,558 - INFO - Tamaño del conjunto de prueba: 19342
+2025-06-14 02:18:11,558 - INFO - Tamaño del conjunto de validación: 5803
+2025-06-14 02:18:11,558 - INFO - Conjuntos de datos preparados.
+2025-06-14 02:18:11,606 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 02:19:56,342 - INFO - Tiempo de extracción: 104.74 segundos
+2025-06-14 02:19:56,342 - INFO - Tamaño de X_train_feats después de extracción: 54706
+2025-06-14 02:19:56,342 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 02:20:32,270 - INFO - Tiempo de extracción: 35.93 segundos
+2025-06-14 02:20:32,270 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 02:20:42,535 - INFO - Tiempo de extracción: 10.27 segundos
+2025-06-14 02:20:42,535 - INFO - Número de características extraídas: 73
+2025-06-14 02:20:42,551 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 02:20:44,351 - INFO - Características constantes: []
+2025-06-14 02:20:44,351 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 02:20:44,351 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 02:20:44,352 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_02-17-55'.
+2025-06-14 02:20:44,352 - INFO - Entrenando XGBoost...
+2025-06-14 02:20:44,352 - INFO - Realizando búsqueda wide...
+2025-06-14 02:20:44,360 - ERROR - Error inesperado en búsqueda wide: high is out of bounds for int32
+2025-06-14 02:20:44,360 - ERROR - Error inesperado en XGBoost: high is out of bounds for int32
+2025-06-14 02:20:44,360 - WARNING - Deteniendo la ejecución.
+2025-06-14 02:29:27,301 - INFO - Cargando los datasets...
+2025-06-14 02:29:41,496 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:29:41,496 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:29:41,496 - INFO - Datasets cargados.
+2025-06-14 02:29:41,496 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 02:29:41,646 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 02:29:41,689 - INFO - Distribución de clases original:
+2025-06-14 02:29:41,691 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 02:29:41,691 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:29:41,691 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:29:41,695 - INFO - Ajustando conjunto de prueba...
+2025-06-14 02:29:41,701 - INFO - Ajustando conjunto de validación...
+2025-06-14 02:29:41,709 - INFO - Balanceando entrenamiento...
+2025-06-14 02:29:41,808 - INFO - Distribución de clases final:
+2025-06-14 02:29:41,808 - INFO - Entrenamiento (54706 ejemplos): {1: 0.5027602091178298, 0: 0.49723979088217013}
+2025-06-14 02:29:41,808 - INFO - Validación (5803 ejemplos): {1: 0.500430811649147, 0: 0.499569188350853}
+2025-06-14 02:29:41,810 - INFO - Prueba (19342 ejemplos): {0: 0.7500258504808189, 1: 0.24997414951918107}
+2025-06-14 02:29:43,897 - INFO - Tamaño del conjunto de entrenamiento: 54706
+2025-06-14 02:29:43,897 - INFO - Tamaño del conjunto de prueba: 19342
+2025-06-14 02:29:43,897 - INFO - Tamaño del conjunto de validación: 5803
+2025-06-14 02:29:43,897 - INFO - Conjuntos de datos preparados.
+2025-06-14 02:29:43,944 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 02:31:27,829 - INFO - Tiempo de extracción: 103.88 segundos
+2025-06-14 02:31:27,829 - INFO - Tamaño de X_train_feats después de extracción: 54706
+2025-06-14 02:31:27,829 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 02:32:03,547 - INFO - Tiempo de extracción: 35.72 segundos
+2025-06-14 02:32:03,547 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 02:32:13,672 - INFO - Tiempo de extracción: 10.12 segundos
+2025-06-14 02:32:13,672 - INFO - Número de características extraídas: 73
+2025-06-14 02:32:13,695 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 02:32:15,361 - INFO - Características constantes: []
+2025-06-14 02:32:15,361 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 02:32:15,361 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 02:32:15,361 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_02-29-27'.
+2025-06-14 02:32:15,361 - INFO - Entrenando XGBoost...
+2025-06-14 02:32:15,361 - INFO - Realizando búsqueda wide...
+2025-06-14 02:33:54,509 - INFO - Cargando los datasets...
+2025-06-14 02:34:09,621 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:34:09,621 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:34:09,621 - INFO - Datasets cargados.
+2025-06-14 02:34:09,621 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 02:34:09,791 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 02:34:09,838 - INFO - Distribución de clases original:
+2025-06-14 02:34:09,838 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 02:34:09,842 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:34:09,842 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:34:09,842 - INFO - Ajustando conjunto de prueba...
+2025-06-14 02:34:09,871 - INFO - Ajustando conjunto de validación...
+2025-06-14 02:34:09,918 - INFO - Balanceando entrenamiento...
+2025-06-14 02:34:10,030 - INFO - Distribución de clases final:
+2025-06-14 02:34:10,032 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 02:34:10,032 - INFO - Validación (193420 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 02:34:10,034 - INFO - Prueba (193420 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-14 02:34:53,797 - INFO - Cargando los datasets...
+2025-06-14 02:35:08,598 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:35:08,598 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 02:35:08,598 - INFO - Datasets cargados.
+2025-06-14 02:35:08,598 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 02:35:08,754 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 02:35:08,787 - INFO - Distribución de clases original:
+2025-06-14 02:35:08,787 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 02:35:08,787 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:35:08,787 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 02:35:08,803 - INFO - Ajustando conjunto de prueba...
+2025-06-14 02:35:08,812 - INFO - Ajustando conjunto de validación...
+2025-06-14 02:35:08,823 - INFO - Balanceando entrenamiento...
+2025-06-14 02:35:08,930 - INFO - Distribución de clases final:
+2025-06-14 02:35:08,930 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 02:35:08,930 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 02:35:08,930 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-14 02:35:18,532 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-14 02:35:18,548 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-14 02:35:18,548 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-14 02:35:18,548 - INFO - Conjuntos de datos preparados.
+2025-06-14 02:35:19,449 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 02:41:14,239 - INFO - Tiempo de extracción: 354.79 segundos
+2025-06-14 02:41:14,239 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-14 02:41:14,239 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 02:42:25,890 - INFO - Tiempo de extracción: 71.65 segundos
+2025-06-14 02:42:25,890 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 02:43:37,753 - INFO - Tiempo de extracción: 71.86 segundos
+2025-06-14 02:43:37,753 - INFO - Número de características extraídas: 73
+2025-06-14 02:43:37,834 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 02:43:43,690 - INFO - Características constantes: []
+2025-06-14 02:43:43,690 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 02:43:43,690 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 02:43:43,706 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_02-34-53'.
+2025-06-14 02:43:43,706 - INFO - Entrenando RandomForest...
+2025-06-14 02:43:43,706 - INFO - Realizando búsqueda wide...
+2025-06-14 02:52:36,507 - ERROR - Error inesperado en búsqueda wide: Could not pickle the task to send it to the workers.
+2025-06-14 02:52:36,507 - ERROR - Error inesperado en RandomForest: Could not pickle the task to send it to the workers.
+2025-06-14 02:52:36,507 - WARNING - Deteniendo la ejecución.
+2025-06-14 03:19:26,066 - INFO - Cargando los datasets...
+2025-06-14 03:19:43,100 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 03:19:43,100 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 03:19:43,100 - INFO - Datasets cargados.
+2025-06-14 03:19:43,100 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 03:19:43,270 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 03:19:43,311 - INFO - Distribución de clases original:
+2025-06-14 03:19:43,311 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 03:19:43,311 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 03:19:43,311 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 03:19:43,311 - INFO - Ajustando conjunto de prueba...
+2025-06-14 03:19:43,321 - INFO - Ajustando conjunto de validación...
+2025-06-14 03:19:43,338 - INFO - Balanceando entrenamiento...
+2025-06-14 03:19:43,449 - INFO - Distribución de clases final:
+2025-06-14 03:19:43,449 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 03:19:43,449 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 03:19:43,449 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-14 03:19:52,681 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-14 03:19:52,681 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-14 03:19:52,681 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-14 03:19:52,681 - INFO - Conjuntos de datos preparados.
+2025-06-14 03:19:52,823 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 03:25:46,095 - INFO - Tiempo de extracción: 353.27 segundos
+2025-06-14 03:25:46,095 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-14 03:25:46,095 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 03:26:58,484 - INFO - Tiempo de extracción: 72.39 segundos
+2025-06-14 03:26:58,484 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 03:28:11,305 - INFO - Tiempo de extracción: 72.82 segundos
+2025-06-14 03:28:11,305 - INFO - Número de características extraídas: 73
+2025-06-14 03:28:11,368 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 03:28:17,330 - INFO - Características constantes: []
+2025-06-14 03:28:17,330 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 03:28:17,330 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 03:28:17,330 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_03-19-26'.
+2025-06-14 03:28:17,330 - INFO - Entrenando RandomForest...
+2025-06-14 03:28:17,346 - INFO - Realizando búsqueda wide...
+2025-06-14 04:33:11,083 - INFO - Cargando los datasets...
+2025-06-14 04:33:26,005 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 04:33:26,005 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 04:33:26,005 - INFO - Datasets cargados.
+2025-06-14 04:33:26,005 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 04:33:26,148 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 04:33:26,179 - INFO - Distribución de clases original:
+2025-06-14 04:33:26,196 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 04:33:26,196 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 04:33:26,196 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 04:33:26,196 - INFO - Ajustando conjunto de prueba...
+2025-06-14 04:33:26,196 - INFO - Ajustando conjunto de validación...
+2025-06-14 04:33:26,217 - INFO - Balanceando entrenamiento...
+2025-06-14 04:33:26,322 - INFO - Distribución de clases final:
+2025-06-14 04:33:26,322 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 04:33:26,322 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 04:33:26,322 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-14 04:33:37,600 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-14 04:33:37,616 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-14 04:33:37,616 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-14 04:33:37,616 - INFO - Conjuntos de datos preparados.
+2025-06-14 04:33:39,346 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 04:39:32,922 - INFO - Tiempo de extracción: 353.56 segundos
+2025-06-14 04:39:32,922 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-14 04:39:32,922 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 04:40:46,126 - INFO - Tiempo de extracción: 73.20 segundos
+2025-06-14 04:40:46,126 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 04:41:58,733 - INFO - Tiempo de extracción: 72.61 segundos
+2025-06-14 04:41:58,733 - INFO - Número de características extraídas: 73
+2025-06-14 04:41:58,812 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 04:42:04,741 - INFO - Características constantes: []
+2025-06-14 04:42:04,741 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 04:42:04,741 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 04:42:04,756 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_04-33-11'.
+2025-06-14 04:42:04,756 - INFO - Entrenando RandomForest...
+2025-06-14 04:42:04,756 - INFO - Realizando búsqueda wide...
+2025-06-14 04:51:11,052 - ERROR - Error inesperado en búsqueda wide: Could not pickle the task to send it to the workers.
+2025-06-14 04:51:11,052 - ERROR - Error inesperado en RandomForest: Could not pickle the task to send it to the workers.
+2025-06-14 04:51:11,052 - WARNING - Deteniendo la ejecución.
+2025-06-14 05:05:20,584 - INFO - Cargando los datasets...
+2025-06-14 05:05:36,430 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 05:05:36,430 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-14 05:05:36,430 - INFO - Datasets cargados.
+2025-06-14 05:05:36,430 - INFO - Fusionando datasets JIT y Line...
+2025-06-14 05:05:36,587 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-14 05:05:36,620 - INFO - Distribución de clases original:
+2025-06-14 05:05:36,620 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-14 05:05:36,620 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 05:05:36,620 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-14 05:05:36,635 - INFO - Ajustando conjunto de prueba...
+2025-06-14 05:05:36,643 - INFO - Ajustando conjunto de validación...
+2025-06-14 05:05:36,657 - INFO - Balanceando entrenamiento...
+2025-06-14 05:05:36,761 - INFO - Distribución de clases final:
+2025-06-14 05:05:36,761 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 05:05:36,761 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-14 05:05:36,761 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-14 05:05:47,742 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-14 05:05:47,742 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-14 05:05:47,742 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-14 05:05:47,742 - INFO - Conjuntos de datos preparados.
+2025-06-14 05:05:49,489 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-14 05:11:48,198 - INFO - Tiempo de extracción: 358.70 segundos
+2025-06-14 05:11:48,198 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-14 05:11:48,198 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-14 05:13:00,699 - INFO - Tiempo de extracción: 72.50 segundos
+2025-06-14 05:13:00,699 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-14 05:14:13,161 - INFO - Tiempo de extracción: 72.46 segundos
+2025-06-14 05:14:13,161 - INFO - Número de características extraídas: 73
+2025-06-14 05:14:13,225 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-14 05:14:19,064 - INFO - Características constantes: []
+2025-06-14 05:14:19,064 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-14 05:14:19,064 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-14 05:14:19,080 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-14_05-05-20'.
+2025-06-14 05:14:19,080 - INFO - Entrenando RandomForest...
+2025-06-14 05:14:19,080 - INFO - Realizando búsqueda wide...
+2025-06-14 05:30:19,066 - ERROR - Error de memoria en búsqueda wide: 
+2025-06-14 05:30:19,082 - ERROR - Error crítico en RandomForest: 
+2025-06-14 05:30:19,082 - WARNING - Continuando con el siguiente modelo.
+2025-06-14 05:30:19,082 - INFO - Entrenando XGBoost...
+2025-06-14 05:30:19,082 - INFO - Realizando búsqueda wide...
+2025-06-14 05:30:19,225 - ERROR - Error inesperado en búsqueda wide: high is out of bounds for int32
+2025-06-14 05:30:19,225 - ERROR - Error inesperado en XGBoost: high is out of bounds for int32
+2025-06-14 05:30:19,225 - WARNING - Deteniendo la ejecución.
+2025-06-15 00:23:05,704 - INFO - Cargando los datasets...
+2025-06-15 00:23:22,713 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 00:23:22,713 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 00:23:22,713 - INFO - Datasets cargados.
+2025-06-15 00:23:22,713 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 00:23:22,880 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 00:23:22,922 - INFO - Distribución de clases original:
+2025-06-15 00:23:22,922 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 00:23:22,922 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 00:23:22,922 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 00:23:22,922 - INFO - Ajustando conjunto de prueba...
+2025-06-15 00:23:22,935 - INFO - Ajustando conjunto de validación...
+2025-06-15 00:23:22,953 - INFO - Balanceando entrenamiento...
+2025-06-15 00:23:23,065 - INFO - Distribución de clases final:
+2025-06-15 00:23:23,065 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 00:23:23,067 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 00:23:23,067 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 00:23:38,912 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 00:23:38,912 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 00:23:38,912 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 00:23:38,928 - INFO - Conjuntos de datos preparados.
+2025-06-15 00:23:40,005 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 00:29:35,931 - INFO - Tiempo de extracción: 355.93 segundos
+2025-06-15 00:29:35,931 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 00:29:35,931 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 00:30:50,285 - INFO - Tiempo de extracción: 74.35 segundos
+2025-06-15 00:30:50,285 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 00:32:03,757 - INFO - Tiempo de extracción: 73.47 segundos
+2025-06-15 00:32:03,757 - INFO - Número de características extraídas: 73
+2025-06-15 00:32:03,837 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 00:32:10,504 - INFO - Características constantes: []
+2025-06-15 00:32:10,504 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 00:32:10,504 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 00:32:10,533 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_00-23-05'.
+2025-06-15 00:32:10,533 - INFO - Entrenando RandomForest...
+2025-06-15 00:32:10,533 - INFO - Realizando búsqueda wide...
+2025-06-15 00:43:47,091 - INFO - Cargando los datasets...
+2025-06-15 00:44:02,696 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 00:44:02,696 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 00:44:02,696 - INFO - Datasets cargados.
+2025-06-15 00:44:02,696 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 00:44:02,855 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 00:44:02,902 - INFO - Distribución de clases original:
+2025-06-15 00:44:02,902 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 00:44:02,902 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 00:44:02,902 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 00:44:02,902 - INFO - Ajustando conjunto de prueba...
+2025-06-15 00:44:02,920 - INFO - Ajustando conjunto de validación...
+2025-06-15 00:44:02,920 - INFO - Balanceando entrenamiento...
+2025-06-15 00:44:03,030 - INFO - Distribución de clases final:
+2025-06-15 00:44:03,030 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 00:44:03,030 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 00:44:03,030 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 00:44:12,650 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 00:44:12,650 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 00:44:12,650 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 00:44:12,650 - INFO - Conjuntos de datos preparados.
+2025-06-15 00:44:12,825 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 00:50:03,190 - INFO - Tiempo de extracción: 350.36 segundos
+2025-06-15 00:50:03,190 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 00:50:03,190 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 00:51:15,226 - INFO - Tiempo de extracción: 72.03 segundos
+2025-06-15 00:51:15,226 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 00:52:27,418 - INFO - Tiempo de extracción: 72.19 segundos
+2025-06-15 00:52:27,418 - INFO - Número de características extraídas: 73
+2025-06-15 00:52:27,481 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 00:52:33,482 - INFO - Características constantes: []
+2025-06-15 00:52:33,482 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 00:52:33,482 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 00:52:33,482 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_00-43-47'.
+2025-06-15 00:52:33,482 - INFO - Entrenando RandomForest...
+2025-06-15 00:52:33,482 - INFO - Realizando búsqueda wide...
+2025-06-15 00:57:12,786 - ERROR - Error inesperado en búsqueda wide: Could not pickle the task to send it to the workers.
+2025-06-15 00:57:12,802 - ERROR - Error inesperado en RandomForest: Could not pickle the task to send it to the workers.
+2025-06-15 00:57:12,802 - WARNING - Deteniendo la ejecución.
+2025-06-15 00:57:57,171 - INFO - Cargando los datasets...
+2025-06-15 00:58:12,790 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 00:58:12,790 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 00:58:12,790 - INFO - Datasets cargados.
+2025-06-15 00:58:12,790 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 00:58:12,934 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 00:58:12,981 - INFO - Distribución de clases original:
+2025-06-15 00:58:12,987 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 00:58:12,987 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 00:58:12,987 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 00:58:12,987 - INFO - Ajustando conjunto de prueba...
+2025-06-15 00:58:12,997 - INFO - Ajustando conjunto de validación...
+2025-06-15 00:58:13,013 - INFO - Balanceando entrenamiento...
+2025-06-15 00:58:13,124 - INFO - Distribución de clases final:
+2025-06-15 00:58:13,124 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 00:58:13,124 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 00:58:13,124 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 00:58:22,746 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 00:58:22,746 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 00:58:22,746 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 00:58:22,746 - INFO - Conjuntos de datos preparados.
+2025-06-15 00:58:24,362 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 01:04:18,344 - INFO - Tiempo de extracción: 353.98 segundos
+2025-06-15 01:04:18,344 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 01:04:18,344 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 01:05:31,291 - INFO - Tiempo de extracción: 72.95 segundos
+2025-06-15 01:05:31,291 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 01:06:44,079 - INFO - Tiempo de extracción: 72.79 segundos
+2025-06-15 01:06:44,079 - INFO - Número de características extraídas: 73
+2025-06-15 01:06:44,148 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 01:06:50,018 - INFO - Características constantes: []
+2025-06-15 01:06:50,018 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 01:06:50,018 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 01:06:50,023 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_00-57-57'.
+2025-06-15 01:06:50,023 - INFO - Entrenando RandomForest...
+2025-06-15 01:06:50,023 - INFO - Realizando búsqueda wide...
+2025-06-15 10:05:24,920 - ERROR - Error de memoria en búsqueda wide: Unable to allocate 1.94 GiB for an array with shape (522051967,) and data type int32
+2025-06-15 10:05:24,972 - ERROR - Error crítico en RandomForest: Unable to allocate 1.94 GiB for an array with shape (522051967,) and data type int32
+2025-06-15 10:05:24,972 - WARNING - Continuando con el siguiente modelo.
+2025-06-15 10:05:33,132 - INFO - Entrenando XGBoost...
+2025-06-15 10:05:33,132 - INFO - Realizando búsqueda wide...
+2025-06-15 10:05:33,211 - ERROR - Error inesperado en búsqueda wide: high is out of bounds for int32
+2025-06-15 10:05:33,211 - ERROR - Error inesperado en XGBoost: high is out of bounds for int32
+2025-06-15 10:05:33,211 - WARNING - Deteniendo la ejecución.
+2025-06-15 18:37:35,728 - INFO - Cargando los datasets...
+2025-06-15 18:38:33,930 - INFO - Cargando los datasets...
+2025-06-15 18:38:48,749 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 18:38:48,749 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 18:38:48,749 - INFO - Datasets cargados.
+2025-06-15 18:38:48,749 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 18:38:48,891 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 18:38:48,949 - INFO - Distribución de clases original:
+2025-06-15 18:38:48,953 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 18:38:48,955 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 18:38:48,955 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 18:38:48,957 - INFO - Ajustando conjunto de prueba...
+2025-06-15 18:38:48,970 - INFO - Ajustando conjunto de validación...
+2025-06-15 18:38:48,986 - INFO - Balanceando entrenamiento...
+2025-06-15 18:38:49,113 - INFO - Distribución de clases final:
+2025-06-15 18:38:49,113 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 18:38:49,113 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 18:38:49,113 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 18:39:00,968 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 18:39:00,968 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 18:39:00,968 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 18:39:00,985 - INFO - Conjuntos de datos preparados.
+2025-06-15 18:39:01,403 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 18:44:54,381 - INFO - Tiempo de extracción: 352.98 segundos
+2025-06-15 18:44:54,381 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 18:44:54,381 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 18:46:06,729 - INFO - Tiempo de extracción: 72.35 segundos
+2025-06-15 18:46:06,730 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 18:47:19,231 - INFO - Tiempo de extracción: 72.50 segundos
+2025-06-15 18:47:19,231 - INFO - Número de características extraídas: 73
+2025-06-15 18:47:19,296 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 18:47:26,054 - INFO - Características constantes: []
+2025-06-15 18:47:26,054 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 18:47:26,054 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 18:47:26,077 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_18-38-33'.
+2025-06-15 18:47:26,077 - INFO - Entrenando XGBoost...
+2025-06-15 18:47:26,077 - INFO - Realizando búsqueda wide...
+2025-06-15 18:51:58,594 - INFO - Cargando los datasets...
+2025-06-15 18:52:14,414 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 18:52:14,414 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 18:52:14,414 - INFO - Datasets cargados.
+2025-06-15 18:52:14,414 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 18:52:14,572 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 18:52:14,619 - INFO - Distribución de clases original:
+2025-06-15 18:52:14,619 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 18:52:14,619 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 18:52:14,619 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 18:52:14,619 - INFO - Ajustando conjunto de prueba...
+2025-06-15 18:52:14,635 - INFO - Ajustando conjunto de validación...
+2025-06-15 18:52:14,635 - INFO - Balanceando entrenamiento...
+2025-06-15 18:52:14,747 - INFO - Distribución de clases final:
+2025-06-15 18:52:14,747 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 18:52:14,747 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 18:52:14,763 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 18:52:29,254 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 18:52:29,270 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 18:52:29,270 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 18:52:29,270 - INFO - Conjuntos de datos preparados.
+2025-06-15 18:52:30,587 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 18:58:25,678 - INFO - Tiempo de extracción: 355.08 segundos
+2025-06-15 18:58:25,678 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 18:58:25,684 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 18:59:39,109 - INFO - Tiempo de extracción: 73.43 segundos
+2025-06-15 18:59:39,109 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 19:00:52,717 - INFO - Tiempo de extracción: 73.61 segundos
+2025-06-15 19:00:52,717 - INFO - Número de características extraídas: 73
+2025-06-15 19:00:52,800 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 19:00:59,246 - INFO - Características constantes: []
+2025-06-15 19:00:59,263 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 19:00:59,263 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 19:00:59,278 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_18-51-58'.
+2025-06-15 19:00:59,278 - INFO - Entrenando XGBoost...
+2025-06-15 19:00:59,278 - INFO - Realizando búsqueda wide...
+2025-06-15 19:07:51,503 - ERROR - Error de memoria en búsqueda wide: Unable to allocate 1.30 GiB for an array with shape (349236265,) and data type int32
+2025-06-15 19:07:51,550 - ERROR - Error crítico en XGBoost: Unable to allocate 1.30 GiB for an array with shape (349236265,) and data type int32
+2025-06-15 19:07:51,550 - WARNING - Continuando con el siguiente modelo.
+2025-06-15 19:08:00,695 - INFO - Comparación de F1-scores (Clase 1)...
+2025-06-15 19:08:00,715 - INFO - Empty DataFrame
+Columns: [Test, Validation]
+Index: []
+2025-06-15 19:08:00,726 - INFO - Análisis de Repositorios y Nomenclatura de Archivos...
+2025-06-15 19:24:48,747 - INFO - Cargando los datasets...
+2025-06-15 19:25:07,129 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 19:25:07,129 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 19:25:07,129 - INFO - Datasets cargados.
+2025-06-15 19:25:07,135 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 19:25:07,295 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 19:25:07,335 - INFO - Distribución de clases original:
+2025-06-15 19:25:07,335 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 19:25:07,335 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 19:25:07,344 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 19:25:07,347 - INFO - Ajustando conjunto de prueba...
+2025-06-15 19:25:07,356 - INFO - Ajustando conjunto de validación...
+2025-06-15 19:25:07,375 - INFO - Balanceando entrenamiento...
+2025-06-15 19:25:07,492 - INFO - Distribución de clases final:
+2025-06-15 19:25:07,493 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 19:25:07,493 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 19:25:07,494 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 19:25:21,285 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 19:25:21,285 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 19:25:21,285 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 19:25:21,295 - INFO - Conjuntos de datos preparados.
+2025-06-15 19:25:22,019 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 19:31:15,643 - INFO - Tiempo de extracción: 353.62 segundos
+2025-06-15 19:31:15,643 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 19:31:15,643 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 19:32:27,863 - INFO - Tiempo de extracción: 72.22 segundos
+2025-06-15 19:32:27,863 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 19:33:40,293 - INFO - Tiempo de extracción: 72.43 segundos
+2025-06-15 19:33:40,293 - INFO - Número de características extraídas: 73
+2025-06-15 19:33:40,356 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 19:33:47,259 - INFO - Características constantes: []
+2025-06-15 19:33:47,275 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 19:33:47,275 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 19:33:47,291 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_19-24-48'.
+2025-06-15 19:33:47,291 - INFO - Entrenando XGBoost...
+2025-06-15 19:33:47,291 - INFO - Realizando búsqueda wide...
+2025-06-15 19:38:53,646 - ERROR - Error de memoria en búsqueda wide: Unable to allocate 1.95 GiB for an array with shape (261687641,) and data type int64
+2025-06-15 19:38:53,661 - ERROR - Error crítico en XGBoost: Unable to allocate 1.95 GiB for an array with shape (261687641,) and data type int64
+2025-06-15 19:38:53,661 - WARNING - Continuando con el siguiente modelo.
+2025-06-15 19:39:00,366 - INFO - Comparación de F1-scores (Clase 1)...
+2025-06-15 19:39:00,387 - INFO - Empty DataFrame
+Columns: [Test, Validation]
+Index: []
+2025-06-15 19:39:00,398 - INFO - Análisis de Repositorios y Nomenclatura de Archivos...
+2025-06-15 19:52:36,410 - INFO - Cargando los datasets...
+2025-06-15 19:52:52,322 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 19:52:52,322 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 19:52:52,322 - INFO - Datasets cargados.
+2025-06-15 19:52:52,322 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 19:52:52,492 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 19:52:52,536 - INFO - Distribución de clases original:
+2025-06-15 19:52:52,539 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 19:52:52,539 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 19:52:52,539 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 19:52:52,543 - INFO - Ajustando conjunto de prueba...
+2025-06-15 19:52:52,555 - INFO - Ajustando conjunto de validación...
+2025-06-15 19:52:52,568 - INFO - Balanceando entrenamiento...
+2025-06-15 19:52:52,683 - INFO - Distribución de clases final:
+2025-06-15 19:52:52,683 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 19:52:52,683 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 19:52:52,690 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 19:53:07,411 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 19:53:07,411 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 19:53:07,411 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 19:53:07,411 - INFO - Conjuntos de datos preparados.
+2025-06-15 19:53:08,513 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 19:59:10,809 - INFO - Tiempo de extracción: 362.29 segundos
+2025-06-15 19:59:10,813 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 19:59:10,813 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 20:00:25,416 - INFO - Tiempo de extracción: 74.60 segundos
+2025-06-15 20:00:25,417 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 20:01:39,226 - INFO - Tiempo de extracción: 73.81 segundos
+2025-06-15 20:01:39,226 - INFO - Número de características extraídas: 73
+2025-06-15 20:01:39,305 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 20:01:45,642 - INFO - Características constantes: []
+2025-06-15 20:01:45,642 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 20:01:45,642 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 20:01:45,658 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_19-52-36'.
+2025-06-15 20:01:45,658 - INFO - Entrenando XGBoost...
+2025-06-15 20:01:45,658 - INFO - Realizando búsqueda wide...
+2025-06-15 20:14:32,104 - INFO - Cargando los datasets...
+2025-06-15 20:14:48,271 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 20:14:48,271 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 20:14:48,271 - INFO - Datasets cargados.
+2025-06-15 20:14:48,271 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 20:14:48,412 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 20:14:48,460 - INFO - Distribución de clases original:
+2025-06-15 20:14:48,468 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 20:14:48,468 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 20:14:48,468 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 20:14:48,468 - INFO - Ajustando conjunto de prueba...
+2025-06-15 20:14:48,475 - INFO - Ajustando conjunto de validación...
+2025-06-15 20:14:48,491 - INFO - Balanceando entrenamiento...
+2025-06-15 20:14:48,602 - INFO - Distribución de clases final:
+2025-06-15 20:14:48,602 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 20:14:48,602 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 20:14:48,602 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 20:15:01,342 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 20:15:01,342 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 20:15:01,342 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 20:15:01,342 - INFO - Conjuntos de datos preparados.
+2025-06-15 20:15:02,214 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 20:20:55,222 - INFO - Tiempo de extracción: 352.99 segundos
+2025-06-15 20:20:55,222 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 20:20:55,222 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 20:22:07,837 - INFO - Tiempo de extracción: 72.61 segundos
+2025-06-15 20:22:07,837 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 20:23:20,703 - INFO - Tiempo de extracción: 72.87 segundos
+2025-06-15 20:23:20,703 - INFO - Número de características extraídas: 73
+2025-06-15 20:23:20,782 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 20:23:27,147 - INFO - Características constantes: []
+2025-06-15 20:23:27,147 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 20:23:27,147 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 20:23:27,163 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_20-14-32'.
+2025-06-15 20:23:27,163 - INFO - Entrenando XGBoost...
+2025-06-15 20:23:27,163 - INFO - Realizando búsqueda wide...
+2025-06-15 20:46:58,075 - INFO - Cargando los datasets...
+2025-06-15 20:47:14,023 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 20:47:14,023 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 20:47:14,023 - INFO - Datasets cargados.
+2025-06-15 20:47:14,023 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 20:47:14,191 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 20:47:14,231 - INFO - Distribución de clases original:
+2025-06-15 20:47:14,231 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 20:47:14,231 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 20:47:14,231 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 20:47:14,231 - INFO - Ajustando conjunto de prueba...
+2025-06-15 20:47:14,251 - INFO - Ajustando conjunto de validación...
+2025-06-15 20:47:14,271 - INFO - Balanceando entrenamiento...
+2025-06-15 20:47:14,393 - INFO - Distribución de clases final:
+2025-06-15 20:47:14,394 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 20:47:14,394 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 20:47:14,394 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 20:47:28,394 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 20:47:28,402 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 20:47:28,402 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 20:47:28,402 - INFO - Conjuntos de datos preparados.
+2025-06-15 20:47:28,811 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 20:53:24,971 - INFO - Tiempo de extracción: 356.16 segundos
+2025-06-15 20:53:24,971 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 20:53:24,971 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 20:54:38,143 - INFO - Tiempo de extracción: 73.17 segundos
+2025-06-15 20:54:38,143 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 20:55:51,518 - INFO - Tiempo de extracción: 73.37 segundos
+2025-06-15 20:55:51,518 - INFO - Número de características extraídas: 73
+2025-06-15 20:55:51,593 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 20:55:57,640 - INFO - Características constantes: []
+2025-06-15 20:55:57,640 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 20:55:57,640 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 20:55:57,672 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_20-46-58'.
+2025-06-15 20:55:57,672 - INFO - Entrenando XGBoost...
+2025-06-15 20:55:57,672 - INFO - Realizando búsqueda wide...
+2025-06-15 20:55:57,767 - ERROR - Error inesperado en búsqueda wide: high is out of bounds for int32
+2025-06-15 20:55:57,767 - ERROR - Error inesperado en XGBoost: high is out of bounds for int32
+2025-06-15 20:55:57,767 - WARNING - Deteniendo la ejecución.
+2025-06-15 20:57:58,411 - INFO - Cargando los datasets...
+2025-06-15 20:58:14,072 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 20:58:14,072 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 20:58:14,072 - INFO - Datasets cargados.
+2025-06-15 20:58:14,072 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 20:58:14,215 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 20:58:14,262 - INFO - Distribución de clases original:
+2025-06-15 20:58:14,268 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 20:58:14,268 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 20:58:14,268 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 20:58:14,268 - INFO - Ajustando conjunto de prueba...
+2025-06-15 20:58:14,278 - INFO - Ajustando conjunto de validación...
+2025-06-15 20:58:14,278 - INFO - Balanceando entrenamiento...
+2025-06-15 20:58:14,389 - INFO - Distribución de clases final:
+2025-06-15 20:58:14,389 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 20:58:14,404 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 20:58:14,404 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 20:58:25,277 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 20:58:25,277 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 20:58:25,277 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 20:58:25,293 - INFO - Conjuntos de datos preparados.
+2025-06-15 20:58:27,354 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 21:04:21,507 - INFO - Tiempo de extracción: 354.15 segundos
+2025-06-15 21:04:21,507 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 21:04:21,507 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 21:05:34,706 - INFO - Tiempo de extracción: 73.20 segundos
+2025-06-15 21:05:34,706 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 21:06:47,812 - INFO - Tiempo de extracción: 73.11 segundos
+2025-06-15 21:06:47,812 - INFO - Número de características extraídas: 73
+2025-06-15 21:06:47,874 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 21:06:55,942 - INFO - Características constantes: []
+2025-06-15 21:06:55,958 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 21:06:55,958 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 21:06:55,958 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_20-57-58'.
+2025-06-15 21:06:55,958 - INFO - Entrenando XGBoost...
+2025-06-15 21:06:55,958 - INFO - Realizando búsqueda wide...
+2025-06-15 21:06:56,005 - ERROR - Error inesperado en búsqueda wide: high is out of bounds for int32
+2025-06-15 21:06:56,005 - ERROR - Error inesperado en XGBoost: high is out of bounds for int32
+2025-06-15 21:06:56,005 - WARNING - Deteniendo la ejecución.
+2025-06-15 21:08:35,234 - INFO - Cargando los datasets...
+2025-06-15 21:08:51,614 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 21:08:51,614 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 21:08:51,614 - INFO - Datasets cargados.
+2025-06-15 21:08:51,614 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 21:08:51,791 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 21:08:51,831 - INFO - Distribución de clases original:
+2025-06-15 21:08:51,831 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 21:08:51,831 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 21:08:51,831 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 21:08:51,839 - INFO - Ajustando conjunto de prueba...
+2025-06-15 21:08:51,851 - INFO - Ajustando conjunto de validación...
+2025-06-15 21:08:51,862 - INFO - Balanceando entrenamiento...
+2025-06-15 21:08:51,984 - INFO - Distribución de clases final:
+2025-06-15 21:08:51,984 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 21:08:51,984 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 21:08:51,984 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 21:09:09,793 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 21:09:09,801 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 21:09:09,801 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 21:09:09,809 - INFO - Conjuntos de datos preparados.
+2025-06-15 21:09:11,078 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 21:15:10,388 - INFO - Tiempo de extracción: 359.31 segundos
+2025-06-15 21:15:10,388 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 21:15:10,388 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 21:16:23,667 - INFO - Tiempo de extracción: 73.28 segundos
+2025-06-15 21:16:23,667 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 21:17:36,466 - INFO - Tiempo de extracción: 72.80 segundos
+2025-06-15 21:17:36,466 - INFO - Número de características extraídas: 73
+2025-06-15 21:17:36,546 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 21:17:42,588 - INFO - Características constantes: []
+2025-06-15 21:17:42,588 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 21:17:42,588 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 21:17:42,597 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_21-08-35'.
+2025-06-15 21:17:42,613 - INFO - Entrenando XGBoost...
+2025-06-15 21:17:42,613 - INFO - Realizando búsqueda wide...
+2025-06-15 21:22:57,953 - ERROR - Error de memoria en búsqueda wide: Unable to allocate 1.95 GiB for an array with shape (261687641,) and data type int64
+2025-06-15 21:22:57,953 - ERROR - Error crítico en XGBoost: Unable to allocate 1.95 GiB for an array with shape (261687641,) and data type int64
+2025-06-15 21:22:57,953 - WARNING - Continuando con el siguiente modelo.
+2025-06-15 21:23:04,400 - INFO - Comparación de F1-scores (Clase 1)...
+2025-06-15 21:23:04,416 - INFO - Empty DataFrame
+Columns: [Test, Validation]
+Index: []
+2025-06-15 21:23:04,432 - INFO - Análisis de Repositorios y Nomenclatura de Archivos...
+2025-06-15 21:24:52,195 - INFO - Cargando los datasets...
+2025-06-15 21:25:07,338 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 21:25:07,338 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 21:25:07,338 - INFO - Datasets cargados.
+2025-06-15 21:25:07,338 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 21:25:07,495 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 21:25:07,543 - INFO - Distribución de clases original:
+2025-06-15 21:25:07,544 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 21:25:07,544 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 21:25:07,544 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 21:25:07,544 - INFO - Ajustando conjunto de prueba...
+2025-06-15 21:25:07,555 - INFO - Ajustando conjunto de validación...
+2025-06-15 21:25:07,569 - INFO - Balanceando entrenamiento...
+2025-06-15 21:25:07,676 - INFO - Distribución de clases final:
+2025-06-15 21:25:07,676 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 21:25:07,676 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 21:25:07,676 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 21:25:18,203 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 21:25:18,203 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 21:25:18,203 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 21:25:18,203 - INFO - Conjuntos de datos preparados.
+2025-06-15 21:25:19,499 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 21:31:12,645 - INFO - Tiempo de extracción: 353.14 segundos
+2025-06-15 21:31:12,645 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 21:31:12,645 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 21:32:24,603 - INFO - Tiempo de extracción: 71.96 segundos
+2025-06-15 21:32:24,603 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 21:33:36,721 - INFO - Tiempo de extracción: 72.12 segundos
+2025-06-15 21:33:36,721 - INFO - Número de características extraídas: 73
+2025-06-15 21:33:36,816 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 21:33:42,642 - INFO - Características constantes: []
+2025-06-15 21:33:42,642 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 21:33:42,642 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 21:33:42,655 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_21-24-52'.
+2025-06-15 21:33:42,655 - INFO - Entrenando XGBoost...
+2025-06-15 21:33:42,655 - INFO - Realizando búsqueda wide...
+2025-06-15 21:44:20,226 - INFO - Cargando los datasets...
+2025-06-15 21:44:35,079 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 21:44:35,079 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 21:44:35,079 - INFO - Datasets cargados.
+2025-06-15 21:44:35,079 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 21:44:35,221 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 21:44:35,269 - INFO - Distribución de clases original:
+2025-06-15 21:44:35,269 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 21:44:35,269 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 21:44:35,269 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 21:44:35,269 - INFO - Ajustando conjunto de prueba...
+2025-06-15 21:44:35,286 - INFO - Ajustando conjunto de validación...
+2025-06-15 21:44:35,298 - INFO - Balanceando entrenamiento...
+2025-06-15 21:44:35,411 - INFO - Distribución de clases final:
+2025-06-15 21:44:35,411 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 21:44:35,411 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 21:44:35,411 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 21:44:46,414 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 21:44:46,430 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 21:44:46,430 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 21:44:46,430 - INFO - Conjuntos de datos preparados.
+2025-06-15 21:44:48,359 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 21:50:42,154 - INFO - Tiempo de extracción: 353.79 segundos
+2025-06-15 21:50:42,154 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 21:50:42,154 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 21:51:54,486 - INFO - Tiempo de extracción: 72.33 segundos
+2025-06-15 21:51:54,486 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 21:53:07,032 - INFO - Tiempo de extracción: 72.55 segundos
+2025-06-15 21:53:07,032 - INFO - Número de características extraídas: 73
+2025-06-15 21:53:07,095 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 21:53:12,826 - INFO - Características constantes: []
+2025-06-15 21:53:12,826 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 21:53:12,826 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 21:53:12,833 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_21-44-20'.
+2025-06-15 21:53:12,833 - INFO - Entrenando XGBoost...
+2025-06-15 21:53:12,833 - INFO - Realizando búsqueda wide...
+2025-06-15 21:53:48,555 - ERROR - Error inesperado en búsqueda wide: Could not pickle the task to send it to the workers.
+2025-06-15 21:53:48,563 - ERROR - Error inesperado en XGBoost: Could not pickle the task to send it to the workers.
+2025-06-15 21:53:48,563 - WARNING - Deteniendo la ejecución.
+2025-06-15 21:55:09,034 - INFO - Cargando los datasets...
+2025-06-15 21:55:24,799 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 21:55:24,799 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 21:55:24,799 - INFO - Datasets cargados.
+2025-06-15 21:55:24,799 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 21:55:24,958 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 21:55:25,006 - INFO - Distribución de clases original:
+2025-06-15 21:55:25,022 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 21:55:25,022 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 21:55:25,022 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 21:55:25,022 - INFO - Ajustando conjunto de prueba...
+2025-06-15 21:55:25,037 - INFO - Ajustando conjunto de validación...
+2025-06-15 21:55:25,053 - INFO - Balanceando entrenamiento...
+2025-06-15 21:55:25,165 - INFO - Distribución de clases final:
+2025-06-15 21:55:25,165 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 21:55:25,165 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 21:55:25,165 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 21:55:35,070 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 21:55:35,086 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 21:55:35,086 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 21:55:35,086 - INFO - Conjuntos de datos preparados.
+2025-06-15 21:55:36,543 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 22:01:29,695 - INFO - Tiempo de extracción: 353.15 segundos
+2025-06-15 22:01:29,695 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 22:01:29,695 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 22:02:42,277 - INFO - Tiempo de extracción: 72.58 segundos
+2025-06-15 22:02:42,277 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 22:03:55,190 - INFO - Tiempo de extracción: 72.91 segundos
+2025-06-15 22:03:55,190 - INFO - Número de características extraídas: 73
+2025-06-15 22:03:55,285 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 22:04:01,296 - INFO - Características constantes: []
+2025-06-15 22:04:01,296 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 22:04:01,296 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 22:04:01,312 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_21-55-09'.
+2025-06-15 22:04:01,312 - INFO - Entrenando XGBoost...
+2025-06-15 22:04:01,312 - INFO - Realizando búsqueda wide...
+2025-06-15 22:27:41,257 - ERROR - Error de memoria en búsqueda wide: Unable to allocate 993. MiB for an array with shape (260364326,) and data type int32
+2025-06-15 22:27:41,257 - ERROR - Error crítico en XGBoost: Unable to allocate 993. MiB for an array with shape (260364326,) and data type int32
+2025-06-15 22:27:41,257 - WARNING - Continuando con el siguiente modelo.
+2025-06-15 22:27:46,637 - INFO - Comparación de F1-scores (Clase 1)...
+2025-06-15 22:27:46,639 - INFO - Empty DataFrame
+Columns: [Test, Validation]
+Index: []
+2025-06-15 22:27:46,656 - INFO - Análisis de Repositorios y Nomenclatura de Archivos...
+2025-06-15 22:28:52,347 - INFO - Cargando los datasets...
+2025-06-15 22:29:07,505 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 22:29:07,505 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 22:29:07,505 - INFO - Datasets cargados.
+2025-06-15 22:29:07,505 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 22:29:07,648 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 22:29:07,695 - INFO - Distribución de clases original:
+2025-06-15 22:29:07,699 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 22:29:07,699 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 22:29:07,699 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 22:29:07,699 - INFO - Ajustando conjunto de prueba...
+2025-06-15 22:29:07,711 - INFO - Ajustando conjunto de validación...
+2025-06-15 22:29:07,711 - INFO - Balanceando entrenamiento...
+2025-06-15 22:29:07,838 - INFO - Distribución de clases final:
+2025-06-15 22:29:07,838 - INFO - Entrenamiento (182354 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 22:29:07,838 - INFO - Validación (38684 ejemplos): {1: 0.5, 0: 0.5}
+2025-06-15 22:29:07,838 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 22:29:22,319 - INFO - Tamaño del conjunto de entrenamiento: 182354
+2025-06-15 22:29:22,335 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 22:29:22,335 - INFO - Tamaño del conjunto de validación: 38684
+2025-06-15 22:29:22,335 - INFO - Conjuntos de datos preparados.
+2025-06-15 22:29:22,919 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 22:35:16,055 - INFO - Tiempo de extracción: 353.14 segundos
+2025-06-15 22:35:16,055 - INFO - Tamaño de X_train_feats después de extracción: 182354
+2025-06-15 22:35:16,055 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 22:36:28,263 - INFO - Tiempo de extracción: 72.21 segundos
+2025-06-15 22:36:28,263 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 22:37:40,111 - INFO - Tiempo de extracción: 71.85 segundos
+2025-06-15 22:37:40,111 - INFO - Número de características extraídas: 73
+2025-06-15 22:37:40,189 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 22:37:46,147 - INFO - Características constantes: []
+2025-06-15 22:37:46,147 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 22:37:46,147 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 22:37:46,160 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_22-28-52'.
+2025-06-15 22:37:46,160 - INFO - Entrenando XGBoost...
+2025-06-15 22:37:46,160 - INFO - Realizando búsqueda wide...
+2025-06-15 22:42:51,146 - ERROR - Error de memoria en búsqueda wide: Unable to allocate 1.95 GiB for an array with shape (261687641,) and data type int64
+2025-06-15 22:42:51,154 - ERROR - Error crítico en XGBoost: Unable to allocate 1.95 GiB for an array with shape (261687641,) and data type int64
+2025-06-15 22:42:51,154 - WARNING - Continuando con el siguiente modelo.
+2025-06-15 22:42:57,175 - INFO - Comparación de F1-scores (Clase 1)...
+2025-06-15 22:42:57,190 - INFO - Empty DataFrame
+Columns: [Test, Validation]
+Index: []
+2025-06-15 22:42:57,206 - INFO - Análisis de Repositorios y Nomenclatura de Archivos...
+2025-06-15 22:49:14,835 - INFO - Cargando los datasets...
+2025-06-15 22:49:30,773 - INFO - Columnas en df_train_line: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 22:49:30,805 - INFO - Columnas en df_train_jit: ['datetime', 'commit', 'repo', 'filepath', 'content', 'methods', 'lines']
+2025-06-15 22:49:30,805 - INFO - Datasets cargados.
+2025-06-15 22:49:30,805 - INFO - Fusionando datasets JIT y Line...
+2025-06-15 22:49:30,965 - INFO - Tipo 1: Balancear train y val, mantener test desbalanceado
+2025-06-15 22:49:31,002 - INFO - Distribución de clases original:
+2025-06-15 22:49:31,002 - INFO - Entrenamiento (193420 ejemplos): {0: 0.5286061420742426, 1: 0.47139385792575744}
+2025-06-15 22:49:31,010 - INFO - Validación (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 22:49:31,010 - INFO - Prueba (10000 ejemplos): {0: 0.8754, 1: 0.1246}
+2025-06-15 22:49:31,010 - INFO - Ajustando conjunto de prueba...
+2025-06-15 22:49:31,036 - INFO - Ajustando conjunto de validación...
+2025-06-15 22:49:31,049 - INFO - Balanceando entrenamiento...
+2025-06-15 22:49:31,159 - INFO - Distribución de clases final:
+2025-06-15 22:49:31,159 - INFO - Entrenamiento (109412 ejemplos): {1: 0.5008225788761744, 0: 0.4991774211238255}
+2025-06-15 22:49:31,159 - INFO - Validación (23210 ejemplos): {1: 0.5001292546316243, 0: 0.4998707453683757}
+2025-06-15 22:49:31,159 - INFO - Prueba (38684 ejemplos): {0: 0.75, 1: 0.25}
+2025-06-15 22:49:36,434 - INFO - Tamaño del conjunto de entrenamiento: 109412
+2025-06-15 22:49:36,434 - INFO - Tamaño del conjunto de prueba: 38684
+2025-06-15 22:49:36,434 - INFO - Tamaño del conjunto de validación: 23210
+2025-06-15 22:49:36,434 - INFO - Conjuntos de datos preparados.
+2025-06-15 22:49:36,481 - INFO - Extrayendo características para el conjunto de entrenamiento...
+2025-06-15 22:53:10,785 - INFO - Tiempo de extracción: 214.30 segundos
+2025-06-15 22:53:10,785 - INFO - Tamaño de X_train_feats después de extracción: 109412
+2025-06-15 22:53:10,785 - INFO - Extrayendo características para el conjunto de prueba...
+2025-06-15 22:54:22,526 - INFO - Tiempo de extracción: 71.74 segundos
+2025-06-15 22:54:22,526 - INFO - Extrayendo características para el conjunto de validación...
+2025-06-15 22:55:05,340 - INFO - Tiempo de extracción: 42.81 segundos
+2025-06-15 22:55:05,340 - INFO - Número de características extraídas: 73
+2025-06-15 22:55:05,387 - INFO - Valores faltantes por característica:
+{'loc_full': 0, 'num_defs_full': 0, 'num_classes_full': 0, 'num_imports_full': 0, 'has_try_except_full': 0, 'has_if_else_full': 0, 'uses_torch_full': 0, 'uses_numpy_full': 0, 'uses_cv2_full': 0, 'has_return_full': 0, 'has_raise_full': 0, 'num_comments_full': 0, 'num_empty_lines_full': 0, 'length_full': 0, 'avg_line_length_full': 0, 'comment_ratio_full': 0, 'empty_ratio_full': 0, 'code_density_full': 0, 'token_entropy_full': 0, 'num_indent_levels_full': 0, 'has_tab_mix_full': 0, 'has_unclosed_parens_full': 0, 'repetition_score_full': 0, 'num_decision_points_full': 0, 'num_external_calls_full': 0, 'avg_indent_length_full': 0, 'max_indent_length_full': 0, 'num_todo_comments_full': 0, 'num_operators_full': 0, 'avg_words_per_line_full': 0, 'num_docstrings_full': 0, 'num_error_keywords_full': 0, 'todo_ratio_full': 0, 'loc_diff': 0, 'num_defs_diff': 0, 'num_classes_diff': 0, 'num_imports_diff': 0, 'has_try_except_diff': 0, 'has_if_else_diff': 0, 'uses_torch_diff': 0, 'uses_numpy_diff': 0, 'uses_cv2_diff': 0, 'has_return_diff': 0, 'has_raise_diff': 0, 'num_comments_diff': 0, 'num_empty_lines_diff': 0, 'length_diff': 0, 'avg_line_length_diff': 0, 'comment_ratio_diff': 0, 'empty_ratio_diff': 0, 'code_density_diff': 0, 'token_entropy_diff': 0, 'num_indent_levels_diff': 0, 'has_tab_mix_diff': 0, 'has_unclosed_parens_diff': 0, 'repetition_score_diff': 0, 'num_decision_points_diff': 0, 'num_external_calls_diff': 0, 'avg_indent_length_diff': 0, 'max_indent_length_diff': 0, 'num_todo_comments_diff': 0, 'num_operators_diff': 0, 'avg_words_per_line_diff': 0, 'num_docstrings_diff': 0, 'num_error_keywords_diff': 0, 'todo_ratio_diff': 0, 'commit_hour': 0, 'commit_day': 0, 'filepath_length': 0, 'file_change_freq': 0, 'repo_domain': 0, 'content_text_full': 0, 'content_text_diff': 0}
+2025-06-15 22:55:08,865 - INFO - Características constantes: []
+2025-06-15 22:55:08,865 - INFO - Columnas en X_train_feats después de eliminar constantes: ['loc_full', 'num_defs_full', 'num_classes_full', 'num_imports_full', 'has_try_except_full', 'has_if_else_full', 'uses_torch_full', 'uses_numpy_full', 'uses_cv2_full', 'has_return_full', 'has_raise_full', 'num_comments_full', 'num_empty_lines_full', 'length_full', 'avg_line_length_full', 'comment_ratio_full', 'empty_ratio_full', 'code_density_full', 'token_entropy_full', 'num_indent_levels_full', 'has_tab_mix_full', 'has_unclosed_parens_full', 'repetition_score_full', 'num_decision_points_full', 'num_external_calls_full', 'avg_indent_length_full', 'max_indent_length_full', 'num_todo_comments_full', 'num_operators_full', 'avg_words_per_line_full', 'num_docstrings_full', 'num_error_keywords_full', 'todo_ratio_full', 'loc_diff', 'num_defs_diff', 'num_classes_diff', 'num_imports_diff', 'has_try_except_diff', 'has_if_else_diff', 'uses_torch_diff', 'uses_numpy_diff', 'uses_cv2_diff', 'has_return_diff', 'has_raise_diff', 'num_comments_diff', 'num_empty_lines_diff', 'length_diff', 'avg_line_length_diff', 'comment_ratio_diff', 'empty_ratio_diff', 'code_density_diff', 'token_entropy_diff', 'num_indent_levels_diff', 'has_tab_mix_diff', 'has_unclosed_parens_diff', 'repetition_score_diff', 'num_decision_points_diff', 'num_external_calls_diff', 'avg_indent_length_diff', 'max_indent_length_diff', 'num_todo_comments_diff', 'num_operators_diff', 'avg_words_per_line_diff', 'num_docstrings_diff', 'num_error_keywords_diff', 'todo_ratio_diff', 'commit_hour', 'commit_day', 'filepath_length', 'file_change_freq', 'repo_domain', 'content_text_full', 'content_text_diff']
+2025-06-15 22:55:08,865 - INFO - Características categóricas actualizadas: ['repo_domain']
+2025-06-15 22:55:08,865 - INFO - Resultados se guardarán en 'ejecuciones\2025-06-15_22-49-14'.
+2025-06-15 22:55:08,865 - INFO - Entrenando XGBoost...
+2025-06-15 22:55:08,865 - INFO - Realizando búsqueda wide...
+2025-06-16 03:28:29,630 - INFO - Tiempo de búsqueda wide: 16400.76 segundos
+2025-06-16 03:28:29,630 - INFO - Mejores parámetros (wide): {'preprocessor__text_full__tfidf__sublinear_tf': True, 'preprocessor__text_full__tfidf__ngram_range': (1, 3), 'preprocessor__text_full__tfidf__min_df': 1, 'preprocessor__text_full__tfidf__max_features': 12000, 'preprocessor__text_full__tfidf__max_df': 0.7, 'preprocessor__text_full__svd__n_iter': 10, 'preprocessor__text_full__svd__n_components': 50, 'clf__estimator__subsample': 1.0, 'clf__estimator__reg_lambda': 1.5, 'clf__estimator__n_estimators': 500, 'clf__estimator__max_depth': 15, 'clf__estimator__learning_rate': 0.05, 'clf__estimator__gamma': 0.0, 'clf__estimator__colsample_bytree': 1.0}
+2025-06-16 03:28:29,630 - INFO - Mejor F1-score (wide): 0.7492
+2025-06-16 03:28:29,630 - INFO - Ajustando el mejor modelo para XGBoost...
+2025-06-16 03:55:15,046 - INFO - Tiempo de entrenamiento: 18006.18 segundos
+2025-06-16 03:55:15,048 - INFO - Estado del preprocesador para XGBoost...
+2025-06-16 03:55:15,076 - INFO - Transformador num: Pipeline(steps=[('imputer', SimpleImputer()), ('scaler', StandardScaler()),
+                ('var_threshold', VarianceThreshold()),
+                ('select', SelectKBest(k='all'))])
+2025-06-16 03:55:15,076 - INFO - Transformador num está ajustado.
+2025-06-16 03:55:15,092 - INFO - Transformador cat: Pipeline(steps=[('imputer',
+                 SimpleImputer(fill_value='missing', strategy='constant')),
+                ('onehot',
+                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))])
+2025-06-16 03:55:15,092 - INFO - Transformador cat está ajustado.
+2025-06-16 03:55:15,092 - INFO - Transformador text_full: Pipeline(steps=[('tfidf',
+                 TfidfVectorizer(max_df=0.7, max_features=12000,
+                                 ngram_range=(1, 3), strip_accents='unicode',
+                                 sublinear_tf=True,
+                                 token_pattern='\\b\\w+\\b')),
+                ('svd',
+                 TruncatedSVD(n_components=50, n_iter=10, random_state=42))])
+2025-06-16 03:55:15,092 - INFO - Transformador text_full está ajustado.
+2025-06-16 03:55:15,092 - INFO - Transformador text_diff: Pipeline(steps=[('tfidf',
+                 TfidfVectorizer(max_df=0.9, max_features=12000, min_df=3,
+                                 ngram_range=(1, 3), strip_accents='unicode',
+                                 sublinear_tf=True,
+                                 token_pattern='\\b\\w+\\b')),
+                ('svd',
+                 TruncatedSVD(n_components=100, n_iter=15, random_state=42))])
+2025-06-16 03:55:15,092 - INFO - Transformador text_diff está ajustado.
+2025-06-16 03:55:15,092 - INFO - Generando nombres de características para XGBoost...
+2025-06-16 03:55:15,092 - INFO - Evaluación en Conjunto Test (XGBoost)...
+2025-06-16 03:58:59,272 - INFO - Tiempo de predicción: 224.18 segundos
+2025-06-16 03:58:59,477 - INFO - Umbral óptimo (MCC): 0.515, MCC: 0.405
+2025-06-16 03:58:59,477 - INFO - Reporte de Clasificación (umbral óptimo MCC, XGBoost):
+2025-06-16 03:58:59,477 - INFO -               precision    recall  f1-score   support
+
+           0       0.91      0.65      0.76     29013
+           1       0.44      0.81      0.57      9671
+
+    accuracy                           0.69     38684
+   macro avg       0.68      0.73      0.67     38684
+weighted avg       0.79      0.69      0.71     38684
+
+2025-06-16 03:58:59,492 - INFO - Matriz de Confusión (umbral óptimo MCC, XGBoost):
+2025-06-16 03:58:59,492 - INFO - [[18975 10038]
+ [ 1810  7861]]
+2025-06-16 03:58:59,529 - INFO - Área bajo la curva ROC: 0.8112
+2025-06-16 03:58:59,529 - INFO - Evaluación en Conjunto Val (XGBoost)...
+2025-06-16 04:01:09,502 - INFO - Tiempo de predicción: 129.97 segundos
+2025-06-16 04:01:09,659 - INFO - Umbral óptimo (MCC): 0.434, MCC: 0.450
+2025-06-16 04:01:09,659 - INFO - Reporte de Clasificación (umbral óptimo MCC, XGBoost):
+2025-06-16 04:01:09,659 - INFO -               precision    recall  f1-score   support
+
+           0       0.80      0.58      0.67     11602
+           1       0.67      0.86      0.75     11608
+
+    accuracy                           0.72     23210
+   macro avg       0.73      0.72      0.71     23210
+weighted avg       0.73      0.72      0.71     23210
+
+2025-06-16 04:01:09,675 - INFO - Matriz de Confusión (umbral óptimo MCC, XGBoost):
+2025-06-16 04:01:09,675 - INFO - [[6701 4901]
+ [1681 9927]]
+2025-06-16 04:01:09,675 - INFO - Área bajo la curva ROC: 0.8034
+2025-06-16 04:01:09,675 - INFO - Calculando Permutation Feature Importance (XGBoost)...
+2025-06-16 05:06:22,300 - INFO - Top 20 características más importantes (Permutation Importance, XGBoost):
+2025-06-16 05:06:22,332 - INFO -                 Feature  Importance Mean  Importance Std
+  text_full_component_8         0.035147        0.004640
+  text_full_component_9         0.033840        0.006399
+  text_full_component_7         0.006757        0.003196
+   avg_line_length_diff         0.004366        0.002115
+        has_return_diff         0.004092        0.004605
+    num_docstrings_full         0.003529        0.001393
+       x0_web_framework         0.002616        0.002115
+    has_try_except_diff         0.002464        0.002744
+               loc_diff         0.002402        0.001306
+  repetition_score_full         0.002245        0.000927
+  text_full_component_3         0.002111        0.003049
+  text_full_component_6         0.001941        0.001365
+        x0_web_scraping         0.001654        0.001059
+       num_imports_full         0.001510        0.000809
+          x0_automation         0.001475        0.002194
+          num_defs_full         0.001371        0.000675
+num_external_calls_full         0.001170        0.001496
+num_error_keywords_full         0.001024        0.000786
+       num_classes_full         0.000936        0.000816
+       has_if_else_diff         0.000547        0.001008
+2025-06-16 05:06:23,543 - INFO - Modelo XGBoost guardado en 'ejecuciones\2025-06-15_22-49-14\xgboost_pipeline_model.joblib'.
+2025-06-16 05:06:23,710 - INFO - Comparación de F1-scores (Clase 1)...
+2025-06-16 05:06:23,712 - INFO -              Test  Validation
+XGBoost  0.570258    0.751021
+2025-06-16 05:06:23,714 - INFO - Análisis de Repositorios y Nomenclatura de Archivos...
