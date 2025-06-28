@@ -24,21 +24,6 @@ logging.basicConfig(
 )
 
 def perform_hyperparameter_search(pipeline, param_dist, X_train, y_train, search_type='wide'):
-    """
-    Realiza una búsqueda de hiperparámetros usando RandomizedSearchCV.
-
-    Parámetros:
-    - pipeline: El pipeline del modelo a optimizar.
-    - param_dist: Diccionario con los rangos de hiperparámetros.
-    - X_train: Datos de entrenamiento.
-    - y_train: Etiquetas de entrenamiento.
-    - search_type: Tipo de búsqueda ('wide' por defecto).
-
-    Retorna:
-    - best_model: El mejor modelo encontrado.
-    - best_params: Los mejores parámetros encontrados.
-    - best_score: El mejor score (f1_macro) obtenido.
-    """
     logging.info(f"Realizando búsqueda {search_type}...")
     print(f"\nRealizando búsqueda {search_type}...")
     start_search = time.time()
@@ -314,16 +299,16 @@ def train_and_evaluate(pipelines, X_train_feats, y_train, X_test_feats, y_test, 
     print(f"Resultados se guardarán en '{output_dir}'.")
     
     param_dist = {}
-    param_dist.update(HYPERPARAM_RANGES_UPDATED['TFIDF'])
-    param_dist.update(HYPERPARAM_RANGES_UPDATED['SVD'])
             
     models = {}
     roc_data = {'test': {}, 'val': {}}
     f1_scores = {'test': {}, 'val': {}}
+    training_times = {}  # Diccionario para almacenar los tiempos de entrenamiento
 
     for model_name, pipeline in pipelines.items():
         logging.info(f"Entrenando {model_name}...")
         print(f"\n=== Entrenando {model_name} ===")
+        import time
         start_train = time.time()
         
         try:
@@ -338,9 +323,11 @@ def train_and_evaluate(pipelines, X_train_feats, y_train, X_test_feats, y_test, 
 
             logging.info(f"Ajustando el mejor modelo para {model_name}...")
             best_model.fit(X_train_feats, y_train)
+            #best_model = pipeline
             end_train = time.time()
             logging.info(f"Tiempo de entrenamiento: {end_train - start_train:.2f} segundos")
             print(f"🕒 Tiempo de entrenamiento: {end_train - start_train:.2f} segundos")
+            training_times[model_name] = end_train - start_train
             models[model_name] = best_model
 
             logging.info(f"Estado del preprocesador para {model_name}...")
@@ -429,7 +416,7 @@ def train_and_evaluate(pipelines, X_train_feats, y_train, X_test_feats, y_test, 
                     n_repeats=10,
                     random_state=GENERAL_PARAMS['RANDOM_STATE'],
                     scoring='f1_macro',
-                    n_jobs=1
+                    n_jobs= 2  # Usar todos los núcleos disponibles
                 )
 
                 n_features = len(result.importances_mean)
@@ -466,15 +453,19 @@ def train_and_evaluate(pipelines, X_train_feats, y_train, X_test_feats, y_test, 
             joblib.dump(best_model, model_filename)
             logging.info(f"Modelo {model_name} guardado en '{model_filename}'.")
             print(f"\n✅ Modelo {model_name} guardado en '{model_filename}'.")
-
+            
         except (OverflowError, MemoryError) as e:
-            logging.error(f"Error crítico en {model_name}: {e}")
+            logging.error(f"Error crítico en {model_name}: {e}", exc_info=True)
             print(f"❌ Error crítico en {model_name}: {e}")
+            import traceback
+            traceback.print_exc()
             logging.warning(f"Continuando con el siguiente modelo.")
             continue
         except Exception as e:
-            logging.error(f"Error inesperado en {model_name}: {e}")
+            logging.error(f"Error inesperado en {model_name}: {e}", exc_info=True)
             print(f"❌ Error inesperado en {model_name}: {e}")
+            import traceback
+            traceback.print_exc()
             logging.warning(f"Deteniendo la ejecución.")
             raise
 
@@ -501,6 +492,23 @@ def train_and_evaluate(pipelines, X_train_feats, y_train, X_test_feats, y_test, 
     plt.grid(True)
     plt.savefig(os.path.join(output_dir, "roc_val.png"))
     plt.close()
+
+    # Generar gráfica de barras
+    plt.figure(figsize=(10, 6))
+    model_names = list(training_times.keys())
+    times = list(training_times.values())
+    plt.bar(model_names, times, color=['#1f77b4', '#ff7f0e', '#2ca02c'], edgecolor='black')
+    plt.xlabel("Modelo")
+    plt.ylabel("Tiempo de Entrenamiento (segundos)")
+    plt.title("Comparación de Tiempos de Entrenamiento por Modelo")
+    plt.grid(True, axis='y', linestyle='--', alpha=0.7)
+    for i, time in enumerate(times):
+        plt.text(i, time + 0.5, f"{time:.2f}s", ha='center', va='bottom')
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, "training_times_comparison.png"))
+    plt.close()
+    logging.info(f"Gráfica de tiempos de entrenamiento guardada en '{output_dir}/training_times_comparison.png'")
+    print(f"Gráfica de tiempos de entrenamiento guardada en '{output_dir}/training_times_comparison.png'")
 
     logging.info("Comparación de F1-scores (Clase 1)...")
     print("\n=== Comparación de F1-scores (Clase 1) ===")
