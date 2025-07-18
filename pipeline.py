@@ -72,8 +72,8 @@ def create_pipelines(preprocessor):
             ('xgb', clf_xgb),
         ],
         voting='soft',  
-        weights=[0.35, 0.65],  # Dar más peso a XGBoost
-        n_jobs= 1  # Usar todos los núcleos disponibles
+        weights=(1,2),  # Dar más peso a XGBoost
+        n_jobs= 2  # Usar todos los núcleos disponibles
     )
     
     pipeline_voting = ImbPipeline(steps=[
@@ -83,7 +83,7 @@ def create_pipelines(preprocessor):
     ])
     
     return {
-        #'RandomForest': pipeline_rf,
+        'RandomForest': pipeline_rf,
         'XGBoost': pipeline_xgb,
-        #'VotingClassifier': pipeline_voting
+        'VotingClassifier': pipeline_voting
     }

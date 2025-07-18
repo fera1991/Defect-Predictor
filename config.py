@@ -10,18 +10,18 @@ GENERAL_PARAMS = {
 }
 
 DATASET_SIZES = {
-    'TRAIN_VAL_PERCENT': 0.20,  # ~18,235 ejemplos
-    'TRAIN_TEST_PERCENT': 0.20,  # ~54,706 ejemplos
-    'TEST_CLASS1_RATIO': 0.25,
-    'DATA_FRACTION': 0.6,  # Usar todo el dataset para entrenamiento
+    'TRAIN_VAL_PERCENT': 0.20,  # El dataset para validación
+    'TRAIN_TEST_PERCENT': 0.20,  # El dataset para prueba
+    'TEST_CLASS1_RATIO': 0.25, # Proporción de la clase 1 en el dataset de prueba
+    'DATA_FRACTION': 1.0,  # El dataset para entrenamiento
 }
 
 # Parámetros para TfidfVectorizer
 TFIDF_PARAMS = {
     'max_features': 12000,  # Aumentado para capturar más términos
-    'min_df': 3,  # Reducido para incluir términos menos frecuentes
+    'min_df': 1,  # Reducido para incluir términos menos frecuentes
     'ngram_range': (1,3),  # Limitado a unigramas y bigramas para menos ruido
-    'max_df': 0.9,  # Ligeramente más estricto
+    'max_df': 0.7,  # Ligeramente más estricto
     'stop_words': None,  # Sin stop words para simplicidad
     'lowercase': True,  # Mantenido para consistencia
     'analyzer': 'word',
@@ -33,9 +33,9 @@ TFIDF_PARAMS = {
 
 # Parámetros para TruncatedSVD
 SVD_PARAMS = {
-    'n_components': 100,  # Aumentado para más variabilidad
+    'n_components': 50,  # Aumentado para más variabilidad
     'algorithm': 'randomized',
-    'n_iter': 15,
+    'n_iter': 10,
     'random_state': GENERAL_PARAMS['RANDOM_STATE']
 }
 
@@ -43,12 +43,12 @@ SVD_PARAMS = {
 RF_PARAMS = {
     'n_estimators': 500,
     'max_depth': None,
-    'min_samples_split': 10,
-    'min_samples_leaf': 10,
+    'min_samples_split': 2,
+    'min_samples_leaf': 1,
     'max_features': 'sqrt',  # Usar raíz cuadrada de características
     'class_weight': 'balanced_subsample',
     'random_state': GENERAL_PARAMS['RANDOM_STATE'],
-    'n_jobs': 1,  # Usar múltiples núcleos para entrenamiento
+    'n_jobs': 2,  # Usar múltiples núcleos para entrenamiento
     'max_samples': 0.9,  # Usar 90% de las muestras por árbol
 }
 
@@ -56,13 +56,13 @@ RF_PARAMS = {
 XGB_PARAMS = {
     'n_estimators': 500,  # Más árboles para mayor capacidad
     'max_depth': 15,  # Mayor profundidad para capturar patrones complejos
-    'learning_rate': 0.01,  # Aprendizaje más lento para mejor convergencia
-    'subsample': 1.0,  # Usar más datos por árbol
-    'colsample_bytree': 1.0,  # Más características por árbol
+    'learning_rate': 0.05,  # Aprendizaje más lento para mejor convergencia
+    'subsample': 0.8,  # Usar más datos por árbol
+    'colsample_bytree': 0.7,  # Más características por árbol
     'reg_lambda': 2.0,  # Regularización moderada
     'eval_metric': 'logloss',
     'random_state': GENERAL_PARAMS['RANDOM_STATE'],
-    'n_jobs': 1,  # Usar múltiples núcleos para entrenamiento
+    'n_jobs': 2,  # Usar múltiples núcleos para entrenamiento
     'gamma': 0.3,  # Penalizar divisiones poco útiles
 }
 
@@ -91,17 +91,10 @@ HYPERPARAM_RANGES_UPDATED = {
         'preprocessor__text_full__tfidf__max_df': [0.7, 0.8, 0.9],
         'preprocessor__text_full__tfidf__ngram_range': [(1, 1), (1, 2),(1,3)],
         'preprocessor__text_full__tfidf__sublinear_tf': [True, False],
-        #'preprocessor__text_diff__tfidf__max_features': [5000, 10000, 20000],
-        #'preprocessor__text_diff__tfidf__min_df': [1, 2, 3],
-        #'preprocessor__text_diff__tfidf__max_df': [0.7, 0.8, 0.9],
-        #'preprocessor__text_diff__tfidf__ngram_range': [(1, 1), (1, 2),(1, 3)],
-        #'preprocessor__text_diff__tfidf__sublinear_tf': [True, False],
     },
     'SVD': {
         'preprocessor__text_full__svd__n_components': [50, 75, 100],
         'preprocessor__text_full__svd__n_iter': [5, 10, 15],
-        #'preprocessor__text_diff__svd__n_components': [50, 100, 150],
-        #'preprocessor__text_diff__svd__n_iter': [5, 10, 15],
     },
     'RandomForest': {
         'clf__estimator__n_estimators': [100, 300, 500],
@@ -120,7 +113,7 @@ HYPERPARAM_RANGES_UPDATED = {
         'clf__estimator__gamma': [0.0, 0.1, 0.3],
     },
     'VotingClassifier': {
-        'clf__estimator__weights': [(1,1), (2,1), (1,2)],
-        'clf__estimator__voting': ['hard', 'soft'],
+        'clf__voting': ['hard', 'soft'],
+        'clf__weights': [(1,1), (2,1), (1,2)],
     },
 }
