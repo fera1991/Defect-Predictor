@@ -116,11 +116,12 @@ A continuación, se detalla la estructura del repositorio y la función de cada 
    python main.py
    ```
    > El script main maneja todo el proceso desde entrenamiento hasta evaluación e imprime cada paso que se realiza de cada archivo. Que crea un archivo llamado **Ejecuciones**, donde se almacenan las ejecuciones llamadas por la fecha que se realizó.
-   
+
 3. **Sí ya posee un modelo entrenado y solo se requiere evaluar**:
    ```bash
    python evaluate_models.py
    ```
+   > El script evalua el modelo generado y le genera una nueva carpeta llamada **evaluaciones**.
 
 ## Autores
 El proyecto fue desarrollado por los siguientes autores:
