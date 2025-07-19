@@ -95,6 +95,7 @@ A continuación, se detalla la estructura del repositorio y la función de cada 
 ### Descripción de Archivos
 - **`jit_bug_prediction_splits/`**: Directorio que contiene los archivos descomprimidos del dataset **Defectors** que debe descargarse desde [Zenodo](https://zenodo.org/records/7708984) 
 - **`line_bug_prediction_splits`**: Directorio que contiene los archivos de linea descomprimidos del dataset **Defectors** que debe descargarse desde [Zenodo](https://zenodo.org/records/7708984)
+   > **Ambo archivos es necesario descargarlos por el enlace del repositorio y colocarlos de acuerdo a los nombres**
 - **`evaluate_models.py`**: Scripts que contiene funciones para evaluar modelos de machine learning entrenados para predecir defectos en código.
 - **`config.py`**: Script que define parámetros de configuración para el proyecto.
 - **`metrics.py`**: Scripts con funciones para calcular métricas textuales y de complejidad del código fuente, como entropía de tokens, repetición de líneas, palabras por línea, palabras clave de error, puntos de decisión, niveles de indentación, y más.
@@ -114,7 +115,12 @@ A continuación, se detalla la estructura del repositorio y la función de cada 
    ```bash
    python main.py
    ```
-   > El script main maneja todo el proceso desde entrenamiento hasta evaluación e imprime cada paso que se realiza de cada archivo.
+   > El script main maneja todo el proceso desde entrenamiento hasta evaluación e imprime cada paso que se realiza de cada archivo. Que crea un archivo llamado **Ejecuciones**, donde se almacenan las ejecuciones llamadas por la fecha que se realizó.
+   
+3. **Sí ya posee un modelo entrenado y solo se requiere evaluar**:
+   ```bash
+   python evaluate_models.py
+   ```
 
 ## Autores
 El proyecto fue desarrollado por los siguientes autores:
