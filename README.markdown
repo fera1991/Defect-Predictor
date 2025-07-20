@@ -84,9 +84,14 @@ pip install xgboost
 pip install imbalanced-learn
 ```
 
+- `pyarrow`: Para optimizar memoria y evitar cuellos de botella en procesamiento.
+```bash
+pip install pyarrow
+```
+
 Para instalar todas las bibliotecas externas requeridas de una sola vez, ejecuta:
 ```bash
-pip install numpy pandas matplotlib joblib scikit-learn xgboost imbalanced-learn
+pip install numpy pandas matplotlib joblib scikit-learn xgboost imbalanced-learn pyarrow
 ```
 
 ## Estructura del Proyecto
