@@ -15,6 +15,8 @@ from config import GENERAL_PARAMS, DATASET_SIZES
 import logging
 from datetime import datetime
 from sklearn.utils import resample
+import argparse
+import sys
 
 # Configurar logging
 logging.basicConfig(
@@ -22,6 +24,77 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
+
+def parse_arguments():
+
+    parser = argparse.ArgumentParser(
+        description="Evaluación de modelos preentrenados para predicción de defectos.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "--models_dir",
+        type=str,
+        required=True,
+        help="Directorio donde se encuentran los modelos preentrenados (obligatorio)"
+    )
+    parser.add_argument(
+        "--random_state",
+        type=int,
+        default=GENERAL_PARAMS['RANDOM_STATE'],
+        help="Semilla para reproducibilidad (entero positivo)"
+    )
+    parser.add_argument(
+        "--data_type",
+        type=int,
+        choices=[0, 1],
+        default=GENERAL_PARAMS['DATA_TYPE'],
+        help="Tipo de datos: 0 (sin balancear) o 1 (balanceado)"
+    )
+    parser.add_argument(
+        "--fixed_threshold",
+        type=float,
+        default=None,
+        help="Umbral fijo para clasificación (entre 0 y 1, opcional)"
+    )
+    parser.add_argument(
+        "--val_percent",
+        type=float,
+        default=0.2,
+        help="Porcentaje del conjunto de validación a usar (entre 0 y 1)"
+    )
+    parser.add_argument(
+        "--test_percent",
+        type=float,
+        default=0.2,
+        help="Porcentaje del conjunto de prueba a usar (entre 0 y 1)"
+    )
+
+    try:
+        args = parser.parse_args()
+    except SystemExit:
+        # Mostrar mensaje solo si falta --models_dir
+        print("\n=== NOTA IMPORTANTE ===")
+        print("Debe especificar la ubicación del directorio de modelos preentrenados usando el argumento --models_dir.")
+        print("Ejemplo: python evaluate_models.py --models_dir ejecuciones/modelos_finales")
+        print("Use --help para más información sobre los parámetros disponibles.")
+        print("======================\n")
+        sys.exit(2)  # Salir con el código de error estándar de argparse
+
+    # Validaciones
+    if args.random_state < 0:
+        parser.error("random_state debe ser un entero positivo")
+    if args.fixed_threshold is not None and not (0 <= args.fixed_threshold <= 1):
+        parser.error("fixed_threshold debe estar entre 0 y 1")
+    if not (0 <= args.val_percent <= 1):
+        parser.error("val_percent debe estar entre 0 y 1")
+    if not (0 <= args.test_percent <= 1):
+        parser.error("test_percent debe estar entre 0 y 1")
+    if not os.path.isdir(args.models_dir):
+        logging.error(f"El directorio de modelos '{args.models_dir}' no existe.")
+        print(f"❌ Error: El directorio de modelos '{args.models_dir}' no existe. Proporcione un directorio válido.")
+        sys.exit(1)
+
+    return args
 
 def load_data():
     logging.info("Cargando los datasets...")
@@ -38,7 +111,7 @@ def load_data():
     print("Datasets cargados.")
     return df_test_line, df_val_line, df_test_jit, df_val_jit
 
-def process_data(df_test_line, df_val_line, df_test_jit, df_val_jit, data_type=1):
+def process_data(df_test_line, df_val_line, df_test_jit, df_val_jit, data_type=GENERAL_PARAMS['DATA_TYPE']):
     logging.info("Fusionando datasets JIT y Line...")
     print("\nFusionando datasets JIT y Line...")
     df_test = df_test_jit.merge(df_test_line[['commit', 'repo', 'filepath', 'content']], 
@@ -391,12 +464,18 @@ def evaluate_models(models_dir, X_test_feats, y_test, X_val_feats, y_val, numeri
     # Comparación detallada
     comparison_df = pd.DataFrame(comparison_data)
     
-    logging.info("\nComparación Detallada de RandomForest y XGBoost...")
-    print("\n=== Comparación Detallada de RandomForest y XGBoost ===")
-    rf_xgb_comparison = comparison_df[comparison_df['Modelo'].isin(['Random Forest', 'XGBoost'])]
-    logging.info(rf_xgb_comparison.to_string(index=False))
-    print(rf_xgb_comparison.to_string(index=False))
-    rf_xgb_comparison.to_csv(os.path.join(output_dir, "rf_xgb_comparison.csv"), index=False)
+    rf_present = 'Random Forest' in comparison_df['Modelo'].values
+    xgb_present = 'XGBoost' in comparison_df['Modelo'].values
+    if rf_present and xgb_present:
+        logging.info("\nComparación Detallada de RandomForest y XGBoost...")
+        print("\n=== Comparación Detallada de RandomForest y XGBoost ===")
+        rf_xgb_comparison = comparison_df[comparison_df['Modelo'].isin(['Random Forest', 'XGBoost'])]
+        logging.info(rf_xgb_comparison.to_string(index=False))
+        print(rf_xgb_comparison.to_string(index=False))
+        rf_xgb_comparison.to_csv(os.path.join(output_dir, "rf_xgb_comparison.csv"), index=False)
+    else:
+        logging.warning("No se puede realizar la comparación de RandomForest y XGBoost: uno o ambos modelos no están presentes.")
+        print("⚠️ Advertencia: No se puede realizar la comparación de RandomForest y XGBoost porque uno o ambos modelos no están presentes.")
 
     logging.info("\nComparación Detallada de todos los modelos...")
     print("\n=== Comparación Detallada de todos los modelos ===")
@@ -428,6 +507,25 @@ def evaluate_models(models_dir, X_test_feats, y_test, X_val_feats, y_val, numeri
 if __name__ == "__main__":
     start = time.time()
     
+    args = parse_arguments()
+    
+    # Actualizar parámetros
+    GENERAL_PARAMS['RANDOM_STATE'] = args.random_state
+    GENERAL_PARAMS['DATA_TYPE'] = args.data_type
+    models_dir = args.models_dir
+    val_percent = args.val_percent
+    test_percent = args.test_percent
+    fixed_threshold = args.fixed_threshold
+    
+    DATASET_SIZES['DATA_FRACTION'] = 1.0
+
+    # Verificar que haya al menos un modelo en models_dir
+    model_files = [f for f in os.listdir(models_dir) if f.endswith('.joblib')]
+    if not model_files:
+        logging.error(f"No se encontraron modelos en el directorio '{models_dir}'.")
+        print(f"❌ Error: No se encontraron modelos en el directorio '{models_dir}'. Asegúrese de que contiene archivos .joblib.")
+        sys.exit(1)
+
     general_dir = "evaluaciones"
     if not os.path.exists(general_dir):
         os.makedirs(general_dir)
@@ -452,14 +550,12 @@ if __name__ == "__main__":
     ]
     categorical_features = ['repo_domain']
 
-    models_dir = "ejecuciones/modelos_finales"
-
     df_test_line, df_val_line, df_test_jit, df_val_jit = load_data()
     X_test, y_test, X_val, y_val, df_test, df_val = process_data(df_test_line, df_val_line, df_test_jit, df_val_jit, data_type=1)
     X_test_feats, X_val_feats, numeric_features, categorical_features = extract_features(X_test, X_val, numeric_features, categorical_features)
 
     # Usar umbral óptimo por defecto (fixed_threshold=None)
-    evaluate_models(models_dir, X_test_feats, y_test, X_val_feats, y_val, numeric_features, categorical_features, output_dir, fixed_threshold=None)
+    evaluate_models(models_dir, X_test_feats, y_test, X_val_feats, y_val, numeric_features, categorical_features, output_dir, fixed_threshold)
     
     end = time.time()
     logging.info(f"Tiempo total de ejecución: {end - start:.2f} segundos")

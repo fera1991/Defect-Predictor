@@ -312,18 +312,23 @@ def train_and_evaluate(pipelines, X_train_feats, y_train, X_test_feats, y_test, 
         start_train = time.time()
         
         try:
-            if model_name == 'VotingClassifier':
-                param_dist.update(HYPERPARAM_RANGES_UPDATED['VotingClassifier'])
+            if GENERAL_PARAMS['ENABLE_HYPERPARAM_SEARCH']:
+                if model_name == 'VotingClassifier':
+                    param_dist.update(HYPERPARAM_RANGES_UPDATED['VotingClassifier'])
+                else:
+                    param_dist.update(HYPERPARAM_RANGES_UPDATED[model_name])
+
+                best_model, best_params, best_score = perform_hyperparameter_search(
+                    pipeline, param_dist, X_train_feats, y_train, search_type='wide'
+                )
+                logging.info(f"Ajustando el mejor modelo para {model_name}...")
+                print(f"Ajustando el mejor modelo para {model_name}...")
+                best_model.fit(X_train_feats, y_train)
             else:
-                param_dist.update(HYPERPARAM_RANGES_UPDATED[model_name])
-
-            best_model, best_params, best_score = perform_hyperparameter_search(
-                pipeline, param_dist, X_train_feats, y_train, search_type='wide'
-            )
-
-            logging.info(f"Ajustando el mejor modelo para {model_name}...")
-            best_model.fit(X_train_feats, y_train)
-            #best_model = pipeline
+                logging.info(f"Usando pipeline predeterminado para {model_name} (sin búsqueda de hiperparámetros)...")
+                print(f"Usando pipeline predeterminado para {model_name} (sin búsqueda de hiperparámetros)...")
+                best_model = pipeline
+                best_model.fit(X_train_feats, y_train)
             end_train = time.time()
             logging.info(f"Tiempo de entrenamiento: {end_train - start_train:.2f} segundos")
             print(f"🕒 Tiempo de entrenamiento: {end_train - start_train:.2f} segundos")

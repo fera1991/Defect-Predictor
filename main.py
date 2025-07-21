@@ -1,12 +1,68 @@
 import time
 import os
+import argparse
 from datetime import datetime
-from config import GENERAL_PARAMS
+from config import GENERAL_PARAMS, DATASET_SIZES
 from train import load_data, process_data, extract_features, train_and_evaluate
 from pipeline import create_preprocessor, create_pipelines
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(
+        description="Defect Prediction Model: Entrenamiento y evaluación de modelos de predicción de defectos.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "--random_state",
+        type=int,
+        default=GENERAL_PARAMS['RANDOM_STATE'],
+        help="Semilla para reproducibilidad (entero positivo)"
+    )
+    parser.add_argument(
+        "--data_type",
+        type=int,
+        choices=[0, 1],
+        default=GENERAL_PARAMS['DATA_TYPE'],
+        help="Tipo de datos: 0 (sin balancear) o 1 (balanceado)"
+    )
+    parser.add_argument(
+        "--enable_hyperparam_search",
+        type=lambda s: s.lower() == 'true',
+        default=GENERAL_PARAMS['ENABLE_HYPERPARAM_SEARCH'],
+        help="Activar/desactivar búsqueda de hiperparámetros (true/false)"
+    )
+    parser.add_argument(
+        "--data_fraction",
+        type=float,
+        default=DATASET_SIZES['DATA_FRACTION'],
+        help="Fracción de datos a usar para entrenamiento (entre 0 y 1)"
+    )
+    args = parser.parse_args()
+
+    # Validaciones
+    if args.random_state < 0:
+        parser.error("random_state debe ser un entero positivo")
+    if not (0 <= args.data_fraction <= 1):
+        parser.error("data_fraction debe estar entre 0 y 1")
+
+    return args
+
+
 if __name__ == "__main__":
     start = time.time()
+
+    args = parse_arguments()
+    
+    GENERAL_PARAMS['RANDOM_STATE'] = args.random_state
+    GENERAL_PARAMS['DATA_TYPE'] = args.data_type
+    GENERAL_PARAMS['ENABLE_HYPERPARAM_SEARCH'] = args.enable_hyperparam_search
+    DATASET_SIZES['DATA_FRACTION'] = args.data_fraction
+    
+    print("\n=== Parámetros de ejecución ===")
+    print(f"RANDOM_STATE: {GENERAL_PARAMS['RANDOM_STATE']}")
+    print(f"DATA_TYPE: {GENERAL_PARAMS['DATA_TYPE']} (0: sin balancear, 1: balanceado)")
+    print(f"ENABLE_HYPERPARAM_SEARCH: {GENERAL_PARAMS['ENABLE_HYPERPARAM_SEARCH']}")
+    print(f"DATA_FRACTION: {DATASET_SIZES['DATA_FRACTION']}")
+    print("=============================\n")
     
     # Crear carpeta general "ejecuciones" si no existe
     general_dir = "ejecuciones"

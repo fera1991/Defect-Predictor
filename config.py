@@ -5,8 +5,8 @@
 # Parámetros Generales
 GENERAL_PARAMS = {
     'RANDOM_STATE': 42,
-    'DATA_FRACTION': 0.6,  # Recomendación: Aumentar a 0.5 o 1.0 tras validar
     'DATA_TYPE': 1,
+    'ENABLE_HYPERPARAM_SEARCH': False,  # activar/desactivar búsqueda de hiperparámetros
 }
 
 DATASET_SIZES = {
