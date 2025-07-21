@@ -111,22 +111,43 @@ A continuación, se detalla la estructura del repositorio y la función de cada 
 - **`train.py`**: Script para entrenar los modelos de machine learning. Incluye la implementación de algoritmos como Random Forest, SVM y redes neuronales.
 - **`README.md`**: Este archivo, que proporciona una descripción general del proyecto y las instrucciones para su uso.
 
-## Uso
-1. **Descarga el dataset**:
+## Uso del proyecto
+### Descarga el dataset:
    - Descarga el dataset **Defectors** desde [Zenodo](https://zenodo.org/records/7708984) y colócalo en el directorio `data/`.
    - Sigue las instrucciones del dataset para descomprimirlo y organizarlo correctamente.
 
-2. **Ejecuta el proyecto desde archivo main**:
+### Entrenamiento de Modelos
+1. **Ejecutar el script principal**:
+   Para iniciar el flujo completo de entrenamiento, ejecuta:
    ```bash
-   python main.py --data-type 1 --data-fraction 0.8 --random-state 123 --output-dir resultados/custom
+   python main.py
    ```
-   > El script main maneja todo el proceso desde entrenamiento hasta evaluación e imprime cada paso que se realiza de cada archivo. Que crea un archivo llamado **Ejecuciones**, donde se almacenan las ejecuciones llamadas por la fecha que se realizó.
+   Este comando realiza las siguientes acciones:
+   - **Carga de datos**: Lee los archivos Parquet desde las carpetas `line_bug_prediction_splits/random` y `jit_bug_prediction_splits/random`, ubicadas al mismo nivel que `main.py`. El dataset "Defectors" debe estar descomprimido.
+   - **Procesamiento**: Fusiona datasets, asigna etiquetas binarias (0 para commits sin defectos, 1 para commits con defectos) y aplica técnicas de preprocesamiento.
 
-3. **Sí ya posee un modelo entrenado y solo se requiere evaluar**:
+2. **Personalización con argumentos**:
+   Puedes personalizar la ejecución del script `main.py` con los siguientes argumentos. Ejemplo:
    ```bash
-   python evaluate_models.py
+   python main.py --random_state 2025 --data_type 1 --enable_hyperparamsearch false --data_fraction 0.75
    ```
-   > El script evalua el modelo generado y le genera una nueva carpeta llamada **evaluaciones**.
+
+3. **Resultados generados**:
+   Los resultados se guardan en la carpeta `ejecuciones/<timestamp>`, donde `<timestamp>` es la fecha y hora de ejecución. Incluyen:
+   - **Modelos entrenados**: Archivos `.joblib` (e.g., `random_forest.joblib`, `xgboost.joblib`, `voting_classifier.joblib`).
+   - **Gráficos**: Curvas ROC, histogramas de probabilidades, matrices de confusión, comparaciones de tiempos de entrenamiento y análisis de importancia de características.
+   - **Métricas**: Reportes de clasificación, F1-scores, AUC-ROC y análisis por repositorio en archivos CSV.
+
+### Evaluación de Modelos Existentes
+1. **Ejecutar el script de evaluación**:
+   Para evaluar modelos previamente entrenados, usa el script `evaluate_models.py` especificando el directorio de los modelos:
+   ```bash
+   python evaluate_models.py --models_dir ejecuciones/<timestamp>
+   ```
+   Este comando carga los modelos desde el directorio especificado, los evalúa en los conjuntos de prueba y validación, y genera métricas y gráficos similares a los del entrenamiento. Los resultados se guardan en `evaluaciones/<timestamp>/`.
+
+2. **Personalización con argumentos**:
+   El script `evaluate_models.py` permite personalizar la evaluación mediante argumentos de línea de comandos (detalles en el manual).
 
 ## Autores
 El proyecto fue desarrollado por los siguientes autores:
