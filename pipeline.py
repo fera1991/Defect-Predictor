@@ -14,34 +14,34 @@ from sklearn.feature_selection import VarianceThreshold, SelectKBest, f_classif
 from config import TFIDF_PARAMS, SVD_PARAMS, XGB_PARAMS
 
 def create_preprocessor(numeric_features, categorical_features):
-    numeric_transformer = Pipeline(steps=[
+    numeric_preprocessing = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='mean')),
         ('scaler', StandardScaler()),
         ('var_threshold', VarianceThreshold(threshold=0.0)),
         ('select', SelectKBest(score_func=f_classif, k='all'))
     ])
     
-    categorical_transformer = Pipeline(steps=[
+    categorical_preprocessing = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
         ('onehot', OneHotEncoder(handle_unknown='ignore', sparse_output=False))
     ])
     
-    text_transformer_full = Pipeline(steps=[
+    textual_preprocessing_full = Pipeline(steps=[
         ('tfidf', TfidfVectorizer(**TFIDF_PARAMS)),
         ('svd', TruncatedSVD(**SVD_PARAMS))
     ])
     
-    text_transformer_diff = Pipeline(steps=[
+    textual_preprocessing_diff = Pipeline(steps=[
         ('tfidf', TfidfVectorizer(**TFIDF_PARAMS)),
         ('svd', TruncatedSVD(**SVD_PARAMS))
     ])
     
     preprocessor = ColumnTransformer(
         transformers=[
-            ('num', numeric_transformer, numeric_features),
-            ('cat', categorical_transformer, categorical_features),
-            ('text_full', text_transformer_full, 'content_text_full'),
-            ('text_diff', text_transformer_diff, 'content_text_diff')
+            ('num', numeric_preprocessing, numeric_features),
+            ('cat', categorical_preprocessing, categorical_features),
+            ('text_full', textual_preprocessing_full, 'content_text_full'),
+            ('text_diff', textual_preprocessing_diff, 'content_text_diff')
         ],
         remainder='drop'  # Descartar columnas no especificadas
     )

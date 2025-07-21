@@ -113,7 +113,7 @@ A continuación, se detalla la estructura del repositorio y la función de cada 
 
 ## Uso del proyecto
 ### Descarga el dataset:
-   - Descarga el dataset **Defectors** desde [Zenodo](https://zenodo.org/records/7708984) y colócalo en el directorio `data/`.
+   - Descarga el dataset **Defectors** desde [Zenodo](https://zenodo.org/records/7708984) y colócalo en el directorio principal.
    - Sigue las instrucciones del dataset para descomprimirlo y organizarlo correctamente.
 
 ### Entrenamiento de Modelos

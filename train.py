@@ -66,19 +66,47 @@ def perform_hyperparameter_search(pipeline, param_dist, X_train, y_train, search
 def load_data():
     logging.info("Cargando los datasets...")
     print("Cargando los datasets...")
-    df_train_line = pd.read_parquet("line_bug_prediction_splits/random/train.parquet.gzip")
-    df_test_line = pd.read_parquet("line_bug_prediction_splits/random/test.parquet.gzip")
-    df_val_line = pd.read_parquet("line_bug_prediction_splits/random/val.parquet.gzip")
-    df_train_jit = pd.read_parquet("jit_bug_prediction_splits/random/train.parquet.gzip")
-    df_test_jit = pd.read_parquet("jit_bug_prediction_splits/random/test.parquet.gzip")
-    df_val_jit = pd.read_parquet("jit_bug_prediction_splits/random/val.parquet.gzip")
-    logging.info(f"Columnas en df_train_line: {df_train_line.columns.tolist()}")
-    logging.info(f"Columnas en df_train_jit: {df_train_jit.columns.tolist()}")
-    print("Columnas en df_train_line:", df_train_line.columns.tolist())
-    print("Columnas en df_train_jit:", df_train_jit.columns.tolist())
-    logging.info("Datasets cargados.")
-    print("Datasets cargados.")
-    return (df_train_line, df_test_line, df_val_line), (df_train_jit, df_test_jit, df_val_jit)
+
+    #   Rutas de los archivos
+    data_paths = [
+        "line_bug_prediction_splits/random/train.parquet.gzip",
+        "line_bug_prediction_splits/random/test.parquet.gzip",
+        "line_bug_prediction_splits/random/val.parquet.gzip",
+        "jit_bug_prediction_splits/random/train.parquet.gzip",
+        "jit_bug_prediction_splits/random/test.parquet.gzip",
+        "jit_bug_prediction_splits/random/val.parquet.gzip"
+    ]
+
+    missing_files = []
+    for path in data_paths:
+        if not os.path.exists(path):
+            missing_files.append(path)
+
+    if missing_files:
+        error_msg = f"Error: No se encontraron los siguientes archivos o carpetas:\n{', '.join(missing_files)}\nPor favor, asegúrese de que los archivos parquet estén en las rutas especificadas."
+        logging.error(error_msg)
+        print(error_msg)
+        exit(1)        
+
+    try:
+        df_train_line = pd.read_parquet("line_bug_prediction_splits/random/train.parquet.gzip")
+        df_test_line = pd.read_parquet("line_bug_prediction_splits/random/test.parquet.gzip")
+        df_val_line = pd.read_parquet("line_bug_prediction_splits/random/val.parquet.gzip")
+        df_train_jit = pd.read_parquet("jit_bug_prediction_splits/random/train.parquet.gzip")
+        df_test_jit = pd.read_parquet("jit_bug_prediction_splits/random/test.parquet.gzip")
+        df_val_jit = pd.read_parquet("jit_bug_prediction_splits/random/val.parquet.gzip")
+        logging.info(f"Columnas en df_train_line: {df_train_line.columns.tolist()}")
+        logging.info(f"Columnas en df_train_jit: {df_train_jit.columns.tolist()}")
+        print("Columnas en df_train_line:", df_train_line.columns.tolist())
+        print("Columnas en df_train_jit:", df_train_jit.columns.tolist())
+        logging.info("Datasets cargados.")
+        print("Datasets cargados.")
+        return (df_train_line, df_test_line, df_val_line), (df_train_jit, df_test_jit, df_val_jit)
+    except Exception as e:
+        error_msg = f"Error al cargar los datasets: {e}\nPor favor, verifique que los archivos parquet existan y sean accesibles."
+        logging.error(error_msg)
+        print(error_msg)
+        exit(1)    
 
 def process_data(dfs_line, dfs_jit, data_type):
     df_train_line, df_test_line, df_val_line = dfs_line
@@ -339,16 +367,16 @@ def train_and_evaluate(pipelines, X_train_feats, y_train, X_test_feats, y_test, 
             print(f"\n🔍 Estado del preprocesador para {model_name}...")
             preprocessor = best_model.named_steps['preprocessor']
             for name, transformer, columns in preprocessor.transformers_[:-1]:
-                logging.info(f"Transformador {name}: {transformer}")
-                print(f"Transformador {name}: {transformer}")
+                logging.info(f"Preprocesador {name}: {transformer}")
+                print(f"Preprocesador {name}: {transformer}")
                 try:
                     check_is_fitted(transformer)
-                    logging.info(f"Transformador {name} está ajustado.")
-                    print(f"Transformador {name} está ajustado.")
+                    logging.info(f"Preprocesador {name} está ajustado.")
+                    print(f"Preprocesador {name} está ajustado.")
                 except:
-                    logging.warning(f"Transformador {name} NO está ajustado.")
-                    print(f"Transformador {name} NO está ajustado.")
-                
+                    logging.warning(f"Preprocesador {name} NO está ajustado.")
+                    print(f"Preprocesador {name} NO está ajustado.")
+
             logging.info(f"Generando nombres de características para {model_name}...")
             print(f"\n🔍 Generando nombres de características para {model_name}...")
             feature_names = []
@@ -370,8 +398,8 @@ def train_and_evaluate(pipelines, X_train_feats, y_train, X_test_feats, y_test, 
                         n_components = transformer.named_steps['svd'].n_components
                         feature_names.extend([f'{name}_component_{i+1}' for i in range(n_components)])
                 except Exception as e:
-                    logging.error(f"Error al procesar transformador {name}: {e}")
-                    print(f"Error al procesar transformador {name}: {e}")
+                    logging.error(f"Error al procesar Preprocesador {name}: {e}")
+                    print(f"Error al procesar Preprocesador {name}: {e}")
                     feature_names.extend(columns if name in ['num', 'cat'] else [f'{name}_component_{i+1}' for i in range(100)])
 
             for dataset_name, X, y in [('test', X_test_feats, y_test), ('val', X_val_feats, y_val)]:
