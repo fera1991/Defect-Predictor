@@ -118,7 +118,7 @@ A continuación, se detalla la estructura del repositorio y la función de cada 
 
 2. **Ejecuta el proyecto desde archivo main**:
    ```bash
-   python main.py
+   python main.py --data-type 1 --data-fraction 0.8 --random-state 123 --output-dir resultados/custom
    ```
    > El script main maneja todo el proceso desde entrenamiento hasta evaluación e imprime cada paso que se realiza de cada archivo. Que crea un archivo llamado **Ejecuciones**, donde se almacenan las ejecuciones llamadas por la fecha que se realizó.
 
