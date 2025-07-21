@@ -123,18 +123,18 @@ A continuación, se detalla la estructura del repositorio y la función de cada 
    python main.py
    ```
    Este comando realiza las siguientes acciones:
-   - **Carga de datos**: Lee los archivos Parquet desde las carpetas `line_bug_prediction_splits/random` y `jit_bug_prediction_splits/random`, ubicadas al mismo nivel que `main.py`. El dataset "Defectors" debe estar descomprimido.
+   - **Carga de datos**: Lee los archivos Parquet desde las carpetas `line_bug_prediction_splits/random` y `jit_bug_prediction_splits/random`, ubicadas al mismo nivel que `main.py`.
    - **Procesamiento**: Fusiona datasets, asigna etiquetas binarias (0 para commits sin defectos, 1 para commits con defectos) y aplica técnicas de preprocesamiento.
 
 2. **Personalización con argumentos**:
-   Puedes personalizar la ejecución del script `main.py` con los siguientes argumentos. Ejemplo:
+   Se puede personalizar la ejecución del script `main.py` con los siguientes argumentos. Ejemplo:
    ```bash
    python main.py --random_state 2025 --data_type 1 --enable_hyperparamsearch false --data_fraction 0.75
    ```
 
 3. **Resultados generados**:
    Los resultados se guardan en la carpeta `ejecuciones/<timestamp>`, donde `<timestamp>` es la fecha y hora de ejecución. Incluyen:
-   - **Modelos entrenados**: Archivos `.joblib` (e.g., `random_forest.joblib`, `xgboost.joblib`, `voting_classifier.joblib`).
+   - **Modelos entrenados**: Archivos `.joblib` por ejemplo, `random_forest.joblib`, `xgboost.joblib`, `voting_classifier.joblib`).
    - **Gráficos**: Curvas ROC, histogramas de probabilidades, matrices de confusión, comparaciones de tiempos de entrenamiento y análisis de importancia de características.
    - **Métricas**: Reportes de clasificación, F1-scores, AUC-ROC y análisis por repositorio en archivos CSV.
 
@@ -147,7 +147,7 @@ A continuación, se detalla la estructura del repositorio y la función de cada 
    Este comando carga los modelos desde el directorio especificado, los evalúa en los conjuntos de prueba y validación, y genera métricas y gráficos similares a los del entrenamiento. Los resultados se guardan en `evaluaciones/<timestamp>/`.
 
 2. **Personalización con argumentos**:
-   El script `evaluate_models.py` permite personalizar la evaluación mediante argumentos de línea de comandos (detalles en el manual).
+   El script `evaluate_models.py` permite personalizar la evaluación mediante argumentos de línea de comandos (detalles en el manual de usuario).
 
 ## Autores
 El proyecto fue desarrollado por los siguientes autores:
