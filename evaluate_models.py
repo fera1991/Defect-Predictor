@@ -17,6 +17,7 @@ from datetime import datetime
 from sklearn.utils import resample
 import argparse
 import sys
+import pathlib
 
 # Configurar logging
 logging.basicConfig(
@@ -26,7 +27,6 @@ logging.basicConfig(
 )
 
 def parse_arguments():
-
     parser = argparse.ArgumentParser(
         description="Evaluación de modelos preentrenados para predicción de defectos.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
@@ -35,7 +35,7 @@ def parse_arguments():
         "--models_dir",
         type=str,
         required=True,
-        help="Directorio donde se encuentran los modelos preentrenados (obligatorio)"
+        help="Directorio donde se encuentran los modelos preentrenados (obligatorio), Use comillas si contiene espacios el directorio."
     )
     parser.add_argument(
         "--random_state",
@@ -72,13 +72,13 @@ def parse_arguments():
     try:
         args = parser.parse_args()
     except SystemExit:
-        # Mostrar mensaje solo si falta --models_dir
         print("\n=== NOTA IMPORTANTE ===")
         print("Debe especificar la ubicación del directorio de modelos preentrenados usando el argumento --models_dir.")
         print("Ejemplo: python evaluate_models.py --models_dir ejecuciones/modelos_finales")
+        print("Use comillas si el directorio contiene espacios.")
         print("Use --help para más información sobre los parámetros disponibles.")
         print("======================\n")
-        sys.exit(2)  # Salir con el código de error estándar de argparse
+        sys.exit(2)
 
     # Validaciones
     if args.random_state < 0:
@@ -89,9 +89,20 @@ def parse_arguments():
         parser.error("val_percent debe estar entre 0 y 1")
     if not (0 <= args.test_percent <= 1):
         parser.error("test_percent debe estar entre 0 y 1")
-    if not os.path.isdir(args.models_dir):
+    models_dir_path = pathlib.Path(args.models_dir).resolve()
+    if not models_dir_path.is_dir():
         logging.error(f"El directorio de modelos '{args.models_dir}' no existe.")
-        print(f"❌ Error: El directorio de modelos '{args.models_dir}' no existe. Proporcione un directorio válido.")
+        print("\n❌ Error: El directorio de modelos especificado no existe o tiene un formato incorrecto.")
+        print("🔍 Recomendaciones para escribir correctamente el argumento --models_dir:")
+        print("1️⃣ Opción recomendada (sin espacios):")
+        print("   python evaluate_models.py --models_dir modelos_finales")
+        print()
+        print("2️⃣ Si el nombre del directorio contiene espacios, use comillas:")
+        print("   - En Windows CMD:        \"./Modelos Finales\"")
+        print("   - En PowerShell o Bash: './Modelos Finales'")
+        print()
+        print("⚠️ Evite terminar la ruta con una barra invertida (\\) dentro de comillas simples, ya que puede romper el comando.")
+        print("✅ También puede usar barra normal (/) en lugar de \\ para evitar problemas.")
         sys.exit(1)
 
     return args
@@ -299,10 +310,11 @@ def evaluate_models(models_dir, X_test_feats, y_test, X_val_feats, y_val, numeri
     comparison_data = []
     optimal_threshold_data = []
 
-    model_files = [f for f in os.listdir(models_dir) if f.endswith('.joblib')]
+    models_dir_path = pathlib.Path(models_dir).resolve()
+    model_files = [f for f in models_dir_path.glob('*.joblib')]
     for model_file in model_files:
-        model_name = model_file.replace('_pipeline_model.joblib', '').capitalize()
-        model_path = os.path.join(models_dir, model_file)
+        model_name = model_file.stem.replace('_pipeline_model', '').capitalize()
+        model_path = model_file
         logging.info(f"Cargando modelo {model_name} desde '{model_path}'...")
         print(f"\nCargando modelo {model_name} desde '{model_path}'...")
         models[model_name] = joblib.load(model_path)
@@ -520,7 +532,8 @@ if __name__ == "__main__":
     DATASET_SIZES['DATA_FRACTION'] = 1.0
 
     # Verificar que haya al menos un modelo en models_dir
-    model_files = [f for f in os.listdir(models_dir) if f.endswith('.joblib')]
+    models_dir_path = pathlib.Path(models_dir).resolve()
+    model_files = list(models_dir_path.glob('*.joblib'))
     if not model_files:
         logging.error(f"No se encontraron modelos en el directorio '{models_dir}'.")
         print(f"❌ Error: No se encontraron modelos en el directorio '{models_dir}'. Asegúrese de que contiene archivos .joblib.")
